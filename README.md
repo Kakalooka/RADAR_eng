@@ -6,9 +6,9 @@
 
 
 
-\*\*Live Demo:\*\* https://kakalooka.github.io/RADAR/
+\*\*Live Demo:\*\* https://kakalooka.github.io/RADAR_v2/
 
-
+**5-minute walkthrough:** https://www.youtube.com/watch?v=NXFyamm_zTc
 
 \---
 
@@ -254,7 +254,7 @@ Open the interactive prototype:
 
 
 
-\*\*https://kakalooka.github.io/RADAR/\*\*
+\*\*https://kakalooka.github.io/RADAR_v2/\*\*
 
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-siz
 
 .left-panel{width:210px;background:#fff;border-right:1px solid #e8e8e6;display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
 .lp-top{padding:14px 14px 10px;border-bottom:1px solid #f0f0ec}
+.lp-head{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+.lang-switch{display:flex;border:1px solid #e8e8e6;border-radius:5px;overflow:hidden;flex-shrink:0}
+.lang-btn{font:inherit;font-size:9px;font-weight:600;letter-spacing:.04em;padding:3px 6px;background:#fff;color:#bbb;border:0;cursor:pointer;transition:.12s}
+.lang-btn:hover{color:#555}
+.lang-btn.active{background:#1a1a1a;color:#fff}
+
 .lp-app{font-size:13px;font-weight:600;color:#1a1a1a}
 .lp-asof{font-size:11px;color:#bbb;margin-top:2px}
 
@@ -276,6 +282,51 @@ tr.highlighted td{background:#fff8d6}
 
 .select-all-btn{font-size:9px;color:#bbb;cursor:pointer;text-decoration:underline;text-underline-offset:2px;letter-spacing:0;font-weight:400}
 .select-all-btn:hover{color:#555}
+
+/* ── PORTFOLIO TIMELINE ── */
+.iv-state{display:flex;align-items:center;gap:6px;padding:6px 12px;border-bottom:1px solid #f0f0ec;font-size:10px;color:#888;background:#fafaf8}
+.iv-state-link{color:#555;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.iv-state-link:hover{color:#1a1a1a}
+.sp-iv-done{display:flex;align-items:center;gap:8px;margin-top:9px;padding:7px 10px;border-radius:6px;background:#f0fdf4;border:1px solid #bbf7d0;font-size:11px;color:#166534;font-weight:500}
+.sp-iv-undo{margin-left:auto;background:none;border:0;font:inherit;font-size:10px;color:#166534;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0}
+.tl-pane{flex-direction:column;flex:1;overflow:hidden}
+.tl-toolbar{display:flex;align-items:center;gap:10px;padding:8px 16px;border-bottom:1px solid #f0f0ec;flex-shrink:0}
+.tl-title{font-size:12px;font-weight:600;color:#1a1a1a}
+.tl-legend{display:flex;gap:11px;align-items:center;margin-left:auto;font-size:10px;color:#888;flex-wrap:wrap}
+.tl-leg{display:flex;align-items:center;gap:4px}
+.tl-leg-sw{width:12px;height:9px;border-radius:2px;border:1px solid}
+.tl-leg-fc{width:12px;height:9px;border-radius:2px;border:1px dashed #bbb;background:repeating-linear-gradient(45deg,#e4e4e1 0 2px,transparent 2px 4px)}
+.tl-empty{padding:34px 24px;font-size:13px;color:#999;line-height:1.7;max-width:540px}
+.tl-empty b{display:block;color:#555;font-size:13px;margin-bottom:5px;font-weight:600}
+.tl-wrap{flex:1;overflow:auto;position:relative;background:#fff}
+.tl-inner{position:relative;min-width:1020px}
+.tl-head{display:flex;position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #e8e8e6}
+.tl-head .tl-name{position:sticky;left:0;z-index:6;background:#fff;font-size:10px;color:#bbb;text-transform:uppercase;letter-spacing:.05em;align-items:flex-end;padding-bottom:6px}
+.tl-months{flex:1;min-width:720px;display:flex;position:relative}
+.tl-mo{border-left:1px solid #f0f0ec;font-size:10px;color:#bbb;padding:21px 0 6px 8px;white-space:nowrap;overflow:hidden}
+.tl-mo:first-child{border-left:0}
+.tl-name{flex:0 0 300px;width:300px;padding:6px 10px;display:flex;align-items:center;gap:7px;border-right:1px solid #e8e8e6;background:#fff;position:sticky;left:0;z-index:2}
+.tl-row{display:flex;align-items:stretch;border-bottom:1px solid #f6f6f4;min-height:34px}
+.tl-row:hover .tl-name,.tl-row:hover .tl-track{background:#fcfcfa}
+.tl-row{cursor:pointer}
+.tl-grp{display:flex;align-items:stretch;background:#fafaf8;border-bottom:1px solid #f0f0ec;border-top:1px solid #f0f0ec}
+.tl-grp .tl-name{background:#fafaf8;font-size:11px;font-weight:600;padding-top:7px;padding-bottom:7px}
+.tl-grp .tl-track{background:#fafaf8}
+.tl-grp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tl-grp-counts{margin-left:auto;display:flex;gap:6px;font-size:10px;font-weight:500;color:#999}
+.tl-id{font-size:10px;color:#bbb;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;flex-shrink:0}
+.tl-nm{font-size:11.5px;color:#333;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tl-meta{margin-left:auto;display:flex;align-items:center;gap:4px;flex-shrink:0}
+.tl-badge{font-size:8.5px;padding:1px 5px;border-radius:20px;font-weight:600;white-space:nowrap}
+.tl-stale{font-size:10px;color:#d93025;cursor:help}
+.tl-track{flex:1;min-width:720px;position:relative;background:#fff}
+.tl-gl{position:absolute;top:0;bottom:0;width:1px;background:#f0f0ec}
+.tl-bar{position:absolute;top:7px;height:20px;border-radius:4px;border:1px solid;overflow:hidden;display:flex;align-items:center}
+.tl-fill{position:absolute;left:0;top:0;bottom:0;opacity:.55}
+.tl-pct{position:relative;font-size:9.5px;font-weight:600;padding-left:6px;white-space:nowrap}
+.tl-fc{position:absolute;top:7px;height:20px;border-radius:0 4px 4px 0;border:1px dashed;border-left:0;opacity:.85}
+.tl-snap{position:absolute;top:0;bottom:0;width:1px;background:#FFD100;z-index:1;pointer-events:none}
+.tl-snap-lbl{position:absolute;top:2px;font-size:9px;color:#b8860b;background:#fffbeb;border:1px solid #FFD100;border-radius:0 3px 3px 0;padding:1px 5px;white-space:nowrap;z-index:1;pointer-events:none}
 </style>
 </head>
 <body>
@@ -295,38 +346,50 @@ tr.highlighted td{background:#fff8d6}
     </div>
     <div class="sb-icon active" onclick="gotoTab('mapa',this)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-      <span class="sb-tip">Mapa</span>
+      <span class="sb-tip" data-i18n="tipMap">Map</span>
     </div>
     <div class="sb-icon" onclick="gotoTab('tabela',this)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
-      <span class="sb-tip">Tabela</span>
+      <span class="sb-tip" data-i18n="tipTable">Table</span>
+    </div>
+    <div class="sb-icon" onclick="gotoTab('timeline',this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="6" x2="15" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="11" y2="18"/></svg>
+      <span class="sb-tip" data-i18n="tipTimeline">Timeline</span>
     </div>
     <div class="sb-icon" onclick="gotoTab('brief',this)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
-      <span class="sb-tip">Brief</span>
+      <span class="sb-tip" data-i18n="tipBrief">Brief</span>
     </div>
 
     <div class="sb-icon" onclick="gotoTab('dq',this)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <span class="sb-tip">Jakość danych</span>
+      <span class="sb-tip" data-i18n="tipDq">Data quality</span>
     </div>
     <div class="sb-div"></div>
     <div class="sb-icon" onclick="document.getElementById('csv-file').click()">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-      <span class="sb-tip">Wgraj CSV</span>
+      <span class="sb-tip" data-i18n="tipCsv">Upload CSV</span>
     </div>
   </div>
 
   <div class="left-panel">
     <div class="lp-top">
-      <div class="lp-app">Portfolio Radar</div>
-      <div class="lp-asof" id="lp-asof">—</div>
+      <div class="lp-head">
+        <div>
+          <div class="lp-app">Portfolio Radar</div>
+          <div class="lp-asof" id="lp-asof">—</div>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" id="lang-en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="lang-pl" onclick="setLang('pl')">PL</button>
+        </div>
+      </div>
     </div>
 
     <div class="lp-sec">
       <div class="lp-sec-title" style="display:flex;align-items:center;justify-content:space-between">
-        Status
-        <span class="select-all-btn select-all-status" onclick="toggleAllStatus()">odznacz wszystkie</span>
+        <span data-i18n="secStatus">Status</span>
+        <span class="select-all-btn select-all-status" onclick="toggleAllStatus()">deselect all</span>
       </div>
       <div class="filter-row active" id="fr-on_track" onclick="toggleStatus('on_track')">
         <div class="fr-dot" style="background:#22c55e"></div>
@@ -347,19 +410,19 @@ tr.highlighted td{background:#fff8d6}
 
     <div class="lp-sec">
       <div class="lp-sec-title" style="display:flex;align-items:center;justify-content:space-between">
-        Dział
-        <span class="select-all-btn select-all-dept" onclick="toggleAllDept()">odznacz wszystkie</span>
+        <span data-i18n="secDept">Department</span>
+        <span class="select-all-btn select-all-dept" onclick="toggleAllDept()">deselect all</span>
       </div>
       <div id="dept-list"></div>
     </div>
 
     <div class="csv-section">
-      <div class="csv-label">Dane</div>
+      <div class="csv-label" data-i18n="csvLabel">Data</div>
       <button class="csv-btn" onclick="document.getElementById('csv-file').click()">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-        Wgraj własny CSV
+        <span data-i18n="csvUpload">Upload your own CSV</span>
       </button>
-      <div class="csv-active" id="csv-loaded">✓ Wczytano własny plik</div>
+      <div class="csv-active" id="csv-loaded" data-i18n="csvLoaded">✓ Custom file loaded</div>
       <input type="file" id="csv-file" accept=".csv" style="display:none" onchange="handleCSV(event)">
     </div>
   </div>
@@ -368,25 +431,26 @@ tr.highlighted td{background:#fff8d6}
     <div class="main-header">
       <div class="mh-top">
         <div>
-          <div class="mh-title" id="main-title">Portfel inicjatyw</div>
+          <div class="mh-title" id="main-title">Initiative portfolio</div>
           <div class="mh-meta" id="main-meta">—</div>
         </div>
         <div class="hdr-actions">
           <button class="btn-ghost" onclick="exportMD()">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Eksportuj MD
+            <span data-i18n="btnExportMD">Export MD</span>
           </button>
           <button class="btn-primary" onclick="gotoTab('brief',null)">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-            Generuj brief
+            <span data-i18n="btnGenBrief">Generate brief</span>
           </button>
         </div>
       </div>
       <div class="tabs">
-        <div class="tab active" onclick="gotoTab('mapa',null)">Mapa zależności</div>
-        <div class="tab" onclick="gotoTab('tabela',null)">Tabela inicjatyw</div>
-        <div class="tab" onclick="gotoTab('dq',null)">Jakość danych</div>
-        <div class="tab" onclick="gotoTab('brief',null)">Brief per dział</div>
+        <div class="tab active" data-tab="mapa" onclick="gotoTab('mapa',null)" data-i18n="tabMap">Dependency map</div>
+        <div class="tab" data-tab="tabela" onclick="gotoTab('tabela',null)" data-i18n="tabTable">Initiative table</div>
+        <div class="tab" data-tab="timeline" onclick="gotoTab('timeline',null)" data-i18n="tabTimeline">Portfolio Timeline</div>
+        <div class="tab" data-tab="dq" onclick="gotoTab('dq',null)" data-i18n="tabDq">Data quality</div>
+        <div class="tab" data-tab="brief" onclick="gotoTab('brief',null)" data-i18n="tabBrief">Brief per department</div>
       </div>
     </div>
 
@@ -397,33 +461,33 @@ tr.highlighted td{background:#fff8d6}
         <div class="graph-col">
           <div class="stat-row" id="stat-chips"></div>
           <div class="graph-toolbar">
-            <span class="gt-title">Mapa zależności</span>
+            <span class="gt-title" data-i18n="graphTitle">Dependency map</span>
             <div class="layout-btns" style="margin-left:8px">
-              <button class="layout-btn active" id="lb-cols" onclick="setLayout('cols')">Kolumny</button>
-              <button class="layout-btn" id="lb-lanes" onclick="setLayout('lanes')">Działy</button>
-              <button class="layout-btn" id="lb-free" onclick="setLayout('free')">Swobodny</button>
+              <button class="layout-btn active" id="lb-cols" onclick="setLayout('cols')" data-i18n="layoutCols">Columns</button>
+              <button class="layout-btn" id="lb-lanes" onclick="setLayout('lanes')" data-i18n="layoutLanes">Departments</button>
+              <button class="layout-btn" id="lb-free" onclick="setLayout('free')" data-i18n="layoutFree">Free</button>
             </div>
             <div class="zoom-controls" style="margin-left:6px">
-              <button class="zoom-btn" onclick="zoom(1.25)" title="Powiększ">+</button>
-              <button class="zoom-btn" onclick="zoom(0.8)" title="Pomniejsz">−</button>
-              <button class="zoom-btn" onclick="resetView()" title="Resetuj widok" style="font-size:11px">⊙</button>
+              <button class="zoom-btn" onclick="zoom(1.25)" data-i18n-title="zoomIn" title="Zoom in">+</button>
+              <button class="zoom-btn" onclick="zoom(0.8)" data-i18n-title="zoomOut" title="Zoom out">−</button>
+              <button class="zoom-btn" onclick="resetView()" data-i18n-title="resetView" title="Reset view" style="font-size:11px">⊙</button>
             </div>
             <div class="legend" style="margin-left:8px">
               <div class="leg"><div class="leg-dot" style="background:#22c55e"></div>on track</div>
               <div class="leg"><div class="leg-dot" style="background:#FFD100"></div>at risk</div>
               <div class="leg"><div class="leg-dot" style="background:#d93025"></div>blocked</div>
-              <div class="leg"><div class="leg-dot" style="background:#6366f1;border:1.5px solid #6366f1"></div>krytyczny</div>
+              <div class="leg"><div class="leg-dot" style="background:#6366f1;border:1.5px solid #6366f1"></div><span data-i18n="legCritical">critical</span></div>
             </div>
           </div>
           <div style="position:relative;flex:1;overflow:hidden;display:flex;flex-direction:column">
             <div id="dq-alert" style="display:none">
               <div class="dqa-icon">⚠️</div>
               <div class="dqa-body">
-                <div class="dqa-title" id="dqa-title">Wykryto problemy z jakością danych</div>
+                <div class="dqa-title" id="dqa-title">Data quality issues detected</div>
                 <div class="dqa-desc" id="dqa-desc"></div>
                 <div class="dqa-actions">
-                  <button class="dqa-btn-view" onclick="gotoTab('dq',null);hideDqAlert()">Zobacz wszystkie</button>
-                  <button class="dqa-btn-close" onclick="hideDqAlert()">Rozumiem</button>
+                  <button class="dqa-btn-view" onclick="gotoTab('dq',null);hideDqAlert()" data-i18n="dqaViewAll">View all</button>
+                  <button class="dqa-btn-close" onclick="hideDqAlert()" data-i18n="dqaGotIt">Got it</button>
                 </div>
               </div>
               <button class="dqa-dismiss" onclick="hideDqAlert()">✕</button>
@@ -435,12 +499,12 @@ tr.highlighted td{background:#fff8d6}
         </div>
         <div class="queue-col">
           <div class="qc-header">
-            <div class="qc-title">Kolejka interwencji</div>
+            <div class="qc-title" data-i18n="queueTitle">Intervention queue</div>
             <div class="qc-sub" id="q-sub">—</div>
           </div>
           <div class="queue-list" id="queue-list"></div>
           <div class="qc-footer">
-            <button class="btn-ghost" style="width:100%;justify-content:center;font-size:11px" onclick="gotoTab('brief',null)">Brief per dział →</button>
+            <button class="btn-ghost" style="width:100%;justify-content:center;font-size:11px" onclick="gotoTab('brief',null)" data-i18n="briefLink">Brief per department →</button>
           </div>
         </div>
       </div>
@@ -464,18 +528,27 @@ tr.highlighted td{background:#fff8d6}
           <table>
             <thead><tr>
               <th onclick="sortBy('id')">ID <span id="s-id">↕</span></th>
-              <th onclick="sortBy('nazwa_inicjatywy')">Nazwa <span id="s-nazwa_inicjatywy">↕</span></th>
-              <th onclick="sortBy('dzial')">Dział <span id="s-dzial">↕</span></th>
-              <th onclick="sortBy('wlasciciel')">Właściciel <span id="s-wlasciciel">↕</span></th>
+              <th onclick="sortBy('nazwa_inicjatywy')"><span data-i18n="thName">Name</span> <span id="s-nazwa_inicjatywy">↕</span></th>
+              <th onclick="sortBy('dzial')"><span data-i18n="thDept">Department</span> <span id="s-dzial">↕</span></th>
+              <th onclick="sortBy('wlasciciel')"><span data-i18n="thOwner">Owner</span> <span id="s-wlasciciel">↕</span></th>
               <th onclick="sortBy('status')">Status <span id="s-status">↕</span></th>
-              <th onclick="sortBy('postep')">Postęp <span id="s-postep">↕</span></th>
-              <th onclick="sortBy('staleness')">Dni ciszy <span id="s-staleness">↕</span></th>
-              <th>Zależy od</th>
-              <th>Blokuje</th>
+              <th onclick="sortBy('postep')"><span data-i18n="thProgress">Progress</span> <span id="s-postep">↕</span></th>
+              <th onclick="sortBy('staleness')"><span data-i18n="thSilent">Days silent</span> <span id="s-staleness">↕</span></th>
+              <th data-i18n="thDependsOn">Depends on</th>
+              <th data-i18n="thBlocks">Blocks</th>
             </tr></thead>
             <tbody id="tbody"></tbody>
           </table>
         </div>
+      </div>
+
+      <!-- PORTFOLIO TIMELINE -->
+      <div class="tab-pane tl-pane" id="pane-timeline">
+        <div class="tl-toolbar">
+          <span class="tl-title" data-i18n="tlTitle">Portfolio Timeline</span>
+          <div class="tl-legend" id="tl-legend"></div>
+        </div>
+        <div class="tl-wrap" id="tl-wrap"></div>
       </div>
 
       <!-- DATA QUALITY -->
@@ -487,9 +560,9 @@ tr.highlighted td{background:#fff8d6}
       <div class="tab-pane" id="pane-brief">
         <div style="display:flex;flex-direction:column;flex:1;overflow:hidden">
           <div class="brief-bar">
-            <span style="font-size:11px;color:#888">Brief używa filtrów z lewego panelu</span>
+            <span style="font-size:11px;color:#888" data-i18n="briefUsesFilters">Brief uses the filters from the left panel</span>
             <div id="brief-active-filters" style="display:flex;gap:5px;flex-wrap:wrap;margin-left:8px"></div>
-            <button class="btn-ghost" onclick="exportMD()" style="margin-left:auto;font-size:11px">Eksportuj MD</button>
+            <button class="btn-ghost" onclick="exportMD()" style="margin-left:auto;font-size:11px" data-i18n="btnExportMD">Export MD</button>
           </div>
           <div class="brief-body" id="brief-body"></div>
         </div>
@@ -501,8 +574,327 @@ tr.highlighted td{background:#fff8d6}
 <div id="toast"></div>
 <script>
 // ── DATA (injected) ──
-const DEFAULT_DATASET = {"asof": "2026-08-25", "inicjatywy": [{"id": "INIT-01", "nazwa_inicjatywy": "Automatyzacja generowania ofert standardowych", "dzial": "Sales Ops PL", "grupa_tematyczna": "Automatyzacja ofertowania", "wlasciciel": "Aneta Wiśniewska", "sponsor": "Grzegorz Baran", "status": "on_track", "postep_procent": "65", "data_ostatniej_aktualizacji": "2026-08-20", "zalezy_od": "", "notatka_statusu": "Szablon ofert wdrożony w 3 z 5 regionów, pilot pokazuje skrócenie czasu przygotowania oferty z 40 do 12 minut. Czekamy na feedback z regionu Śląsk.", "dep": [], "postep": 65, "staleness": 5, "downstream": ["INIT-02"], "bad_downstream": ["INIT-02"]}, {"id": "INIT-02", "nazwa_inicjatywy": "Integracja generatora ofert z CRM", "dzial": "Sales Ops PL", "grupa_tematyczna": "Automatyzacja ofertowania", "wlasciciel": "Piotr Zieliński", "sponsor": "Grzegorz Baran", "status": "blocked", "postep_procent": "20", "data_ostatniej_aktualizacji": "2026-08-18", "zalezy_od": "INIT-01", "notatka_statusu": "Nie możemy ruszyć z integracją, bo szablon z INIT-01 zmienia się co tydzień - potrzebujemy zamrożonej wersji do końca sierpnia.", "dep": ["INIT-01"], "postep": 20, "staleness": 7, "downstream": [], "bad_downstream": []}, {"id": "INIT-03", "nazwa_inicjatywy": "Segmentacja klientów pod kątem cross-sell", "dzial": "Marketing Commercial", "grupa_tematyczna": "Personalizacja komunikacji z klientem", "wlasciciel": "Julia Sadowska", "sponsor": "Karolina Wójcik", "status": "on_track", "postep_procent": "70", "data_ostatniej_aktualizacji": "2026-08-22", "zalezy_od": "", "notatka_statusu": "Model segmentacji gotowy, walidujemy na próbce 500 klientów. Wyniki obiecujące - trafność rekomendacji 78%.", "dep": [], "postep": 70, "staleness": 3, "downstream": ["INIT-04", "INIT-16"], "bad_downstream": ["INIT-04"]}, {"id": "INIT-04", "nazwa_inicjatywy": "Personalizowane kampanie mailingowe", "dzial": "Marketing Commercial", "grupa_tematyczna": "Personalizacja komunikacji z klientem", "wlasciciel": "Julia Sadowska", "sponsor": "Karolina Wójcik", "status": "at_risk", "postep_procent": "30", "data_ostatniej_aktualizacji": "2026-08-15", "zalezy_od": "INIT-03", "notatka_statusu": "Kampanie czekają na finalny model segmentacji z INIT-03. Termin startu (1 września) jest zagrożony, jeśli INIT-03 nie zamknie się do 25 sierpnia.", "dep": ["INIT-03"], "postep": 30, "staleness": 10, "downstream": [], "bad_downstream": []}, {"id": "INIT-05", "nazwa_inicjatywy": "Rekalkulacja cennika dla segmentu SME", "dzial": "Pricing & Revenue Management", "grupa_tematyczna": "Optymalizacja cennika", "wlasciciel": "Bartek Malinowski", "sponsor": "Dorota Michalska", "status": "on_track", "postep_procent": "55", "data_ostatniej_aktualizacji": "2026-08-21", "zalezy_od": "", "notatka_statusu": "Analiza elastyczności cenowej zakończona, przygotowujemy propozycję 3 wariantów cennika do przeglądu z zarządem.", "dep": [], "postep": 55, "staleness": 4, "downstream": ["INIT-06", "INIT-10", "INIT-15", "INIT-20"], "bad_downstream": ["INIT-06", "INIT-10", "INIT-15", "INIT-20"]}, {"id": "INIT-06", "nazwa_inicjatywy": "Dynamiczne rabaty wolumenowe", "dzial": "Pricing & Revenue Management", "grupa_tematyczna": "Optymalizacja cennika", "wlasciciel": "Bartek Malinowski", "sponsor": "Dorota Michalska", "status": "at_risk", "postep_procent": "25", "data_ostatniej_aktualizacji": "2026-08-10", "zalezy_od": "INIT-05", "notatka_statusu": "Prace wstrzymane - czekamy na decyzję o cenniku bazowym z INIT-05, bez tego nie da się ustalić progów rabatowych. Ostatnia aktualizacja 10 dni temu.", "dep": ["INIT-05"], "postep": 25, "staleness": 15, "downstream": ["INIT-20"], "bad_downstream": ["INIT-20"]}, {"id": "INIT-07", "nazwa_inicjatywy": "Automatyczne wykrywanie ryzyka churnu", "dzial": "Customer Success", "grupa_tematyczna": "Redukcja czasu obsługi reklamacji", "wlasciciel": "Karol Nowak", "sponsor": "Ewa Krawczyk", "status": "on_track", "postep_procent": "80", "data_ostatniej_aktualizacji": "2026-08-23", "zalezy_od": "", "notatka_statusu": "Model predykcyjny w fazie testów na danych produkcyjnych, accuracy 82%. Planowany go-live 5 września.", "dep": [], "postep": 80, "staleness": 2, "downstream": ["INIT-08", "INIT-15"], "bad_downstream": ["INIT-08", "INIT-15"]}, {"id": "INIT-08", "nazwa_inicjatywy": "Skrócenie czasu obsługi reklamacji o 30%", "dzial": "Customer Success", "grupa_tematyczna": "Redukcja czasu obsługi reklamacji", "wlasciciel": "Karol Nowak", "sponsor": "Ewa Krawczyk", "status": "blocked", "postep_procent": "15", "data_ostatniej_aktualizacji": "2026-08-12", "zalezy_od": "INIT-07", "notatka_statusu": "Nie da się priorytetyzować kolejki reklamacji bez modelu ryzyka churnu z INIT-07. Zespół czeka, morale spada.", "dep": ["INIT-07"], "postep": 15, "staleness": 13, "downstream": [], "bad_downstream": []}, {"id": "INIT-09", "nazwa_inicjatywy": "Rozszerzenie oferty na rynek DACH", "dzial": "Regional Sales International", "grupa_tematyczna": "Ekspansja rynków międzynarodowych", "wlasciciel": "Wiktor Lis", "sponsor": "Tomasz Górski", "status": "on_track", "postep_procent": "40", "data_ostatniej_aktualizacji": "2026-08-19", "zalezy_od": "", "notatka_statusu": "Analiza konkurencyjna DACH zakończona, negocjacje z pierwszym partnerem logistycznym w toku.", "dep": [], "postep": 40, "staleness": 6, "downstream": ["INIT-10"], "bad_downstream": ["INIT-10"]}, {"id": "INIT-10", "nazwa_inicjatywy": "Lokalizacja cennika i ofert na rynek DACH", "dzial": "Regional Sales International", "grupa_tematyczna": "Ekspansja rynków międzynarodowych", "wlasciciel": "Wiktor Lis", "sponsor": "Tomasz Górski", "status": "at_risk", "postep_procent": "20", "data_ostatniej_aktualizacji": "2026-08-14", "zalezy_od": "INIT-05, INIT-09", "notatka_statusu": "Potrzebujemy finalnego cennika bazowego z INIT-05 i potwierdzonego zakresu z INIT-09, żeby zacząć lokalizację. Dwa blokery na raz.", "dep": ["INIT-05", "INIT-09"], "postep": 20, "staleness": 11, "downstream": [], "bad_downstream": []}, {"id": "INIT-11", "nazwa_inicjatywy": "Program lojalnościowy dla partnerów B2B", "dzial": "Marketing Commercial", "grupa_tematyczna": "Personalizacja komunikacji z klientem", "wlasciciel": "Grzegorz Adamczyk", "sponsor": "Karolina Wójcik", "status": "on_track", "postep_procent": "60", "data_ostatniej_aktualizacji": "2026-08-20", "zalezy_od": "", "notatka_statusu": "Mechanika programu zatwierdzona przez prawny, przygotowujemy komunikację do pierwszej grupy pilotażowej.", "dep": [], "postep": 60, "staleness": 5, "downstream": [], "bad_downstream": []}, {"id": "INIT-12", "nazwa_inicjatywy": "Dashboard sprzedaży regionalnej PL", "dzial": "Sales Ops PL", "grupa_tematyczna": "Automatyzacja ofertowania", "wlasciciel": "Aneta Wiśniewska", "sponsor": "Grzegorz Baran", "status": "on_track", "postep_procent": "90", "data_ostatniej_aktualizacji": "2026-08-24", "zalezy_od": "", "notatka_statusu": "Dashboard w finalnej fazie UAT, 2 zgłoszone poprawki kosmetyczne. Gotowy do wdrożenia produkcyjnego.", "dep": [], "postep": 90, "staleness": 1, "downstream": ["INIT-14", "INIT-18"], "bad_downstream": ["INIT-14", "INIT-18"]}, {"id": "INIT-13", "nazwa_inicjatywy": "Standaryzacja procesu onboardingu nowych klientów", "dzial": "Customer Success", "grupa_tematyczna": "Redukcja czasu obsługi reklamacji", "wlasciciel": "Karolina Duda", "sponsor": "Ewa Krawczyk", "status": "on_track", "postep_procent": "45", "data_ostatniej_aktualizacji": "2026-08-17", "zalezy_od": "", "notatka_statusu": "Nowy proces onboardingu przetestowany na 10 klientach, średni czas wdrożenia spadł z 14 do 9 dni.", "dep": [], "postep": 45, "staleness": 8, "downstream": [], "bad_downstream": []}, {"id": "INIT-14", "nazwa_inicjatywy": "Automatyczne raporty tygodniowe dla regionów", "dzial": "Sales Ops PL", "grupa_tematyczna": "Automatyzacja ofertowania", "wlasciciel": "Piotr Zieliński", "sponsor": "Grzegorz Baran", "status": "at_risk", "postep_procent": "35", "data_ostatniej_aktualizacji": "2026-08-11", "zalezy_od": "INIT-12", "notatka_statusu": "Raporty mają korzystać z tych samych danych co dashboard z INIT-12, ale struktura danych w dashboardzie zmieniła się w ostatnim tygodniu bez informacji do naszego zespołu.", "dep": ["INIT-12"], "postep": 35, "staleness": 14, "downstream": [], "bad_downstream": []}, {"id": "INIT-15", "nazwa_inicjatywy": "Model predykcji odejść klientów SME", "dzial": "Pricing & Revenue Management", "grupa_tematyczna": "Optymalizacja cennika", "wlasciciel": "Dorota Michalska", "sponsor": "Dorota Michalska (sponsor = exec)", "status": "blocked", "postep_procent": "10", "data_ostatniej_aktualizacji": "2026-08-05", "zalezy_od": "INIT-05, INIT-07", "notatka_statusu": "Projekt praktycznie zamrożony - czekamy jednocześnie na finalny cennik SME (INIT-05) i na dane z modelu churnu Customer Success (INIT-07). Brak właściciela technicznego od 3 tygodni.", "dep": ["INIT-05", "INIT-07"], "postep": 10, "staleness": 20, "downstream": [], "bad_downstream": []}, {"id": "INIT-16", "nazwa_inicjatywy": "Wspólny słownik segmentów klientów (cross-team)", "dzial": "Marketing Commercial", "grupa_tematyczna": "Personalizacja komunikacji z klientem", "wlasciciel": "Julia Sadowska", "sponsor": "Karolina Wójcik", "status": "on_track", "postep_procent": "50", "data_ostatniej_aktualizacji": "2026-08-21", "zalezy_od": "INIT-03", "notatka_statusu": "Słownik segmentów rozszerzony o definicje z zespołu Customer Success, do zamknięcia potrzebujemy jeszcze akceptacji Pricing.", "dep": ["INIT-03"], "postep": 50, "staleness": 4, "downstream": [], "bad_downstream": []}, {"id": "INIT-17", "nazwa_inicjatywy": "Pilotaż sprzedaży przez partnerów w regionie Włochy", "dzial": "Regional Sales International", "grupa_tematyczna": "Ekspansja rynków międzynarodowych", "wlasciciel": "Hubert Krzeski", "sponsor": "Tomasz Górski", "status": "on_track", "postep_procent": "55", "data_ostatniej_aktualizacji": "2026-08-22", "zalezy_od": "", "notatka_statusu": "Pierwszy partner podpisany, pilotaż startuje 1 września na ograniczonej liczbie lokalizacji.", "dep": [], "postep": 55, "staleness": 3, "downstream": ["INIT-18"], "bad_downstream": ["INIT-18"]}, {"id": "INIT-18", "nazwa_inicjatywy": "Ujednolicenie KPI sprzedażowych między regionami", "dzial": "Sales Ops PL", "grupa_tematyczna": "Automatyzacja ofertowania", "wlasciciel": "Aneta Wiśniewska", "sponsor": "Grzegorz Baran", "status": "at_risk", "postep_procent": "25", "data_ostatniej_aktualizacji": "2026-08-09", "zalezy_od": "INIT-12, INIT-17", "notatka_statusu": "Chcemy oprzeć wspólne KPI na danych z dashboardu (INIT-12) i doświadczeniach pilotażu włoskiego (INIT-17), ale oba są jeszcze w toku - ryzyko przesunięcia terminu o miesiąc.", "dep": ["INIT-12", "INIT-17"], "postep": 25, "staleness": 16, "downstream": [], "bad_downstream": []}, {"id": "INIT-19", "nazwa_inicjatywy": "Automatyzacja follow-up po utraconych leadach", "dzial": "Customer Success", "grupa_tematyczna": "Redukcja czasu obsługi reklamacji", "wlasciciel": "Karol Nowak", "sponsor": "Ewa Krawczyk", "status": "on_track", "postep_procent": "65", "data_ostatniej_aktualizacji": "2026-08-23", "zalezy_od": "", "notatka_statusu": "Skrypty follow-up wdrożone dla 2 z 4 segmentów klientów, pierwsze wyniki: 12% leadów wróciło do rozmów.", "dep": [], "postep": 65, "staleness": 2, "downstream": [], "bad_downstream": []}, {"id": "INIT-20", "nazwa_inicjatywy": "Konsolidacja cenników regionalnych do jednego systemu", "dzial": "Pricing & Revenue Management", "grupa_tematyczna": "Optymalizacja cennika", "wlasciciel": "Bartek Malinowski", "sponsor": "Dorota Michalska", "status": "blocked", "postep_procent": "5", "data_ostatniej_aktualizacji": "2026-08-02", "zalezy_od": "INIT-05, INIT-06", "notatka_statusu": "Nie ruszymy z konsolidacją, dokąd nie zamknie się bazowy cennik SME (INIT-05) i logika rabatów wolumenowych (INIT-06). Zespół przeniesiony tymczasowo do innych zadań.", "dep": ["INIT-05", "INIT-06"], "postep": 5, "staleness": 23, "downstream": [], "bad_downstream": []}], "interwencje": [{"id": "INIT-05", "rola": "ROOT_CAUSE", "nazwa": "Rekalkulacja cennika dla segmentu SME", "dzial": "Pricing & Revenue Management", "status": "on_track", "postep": 55, "staleness": 4, "downstream": ["INIT-06", "INIT-10", "INIT-15", "INIT-20"], "bad_downstream": ["INIT-06", "INIT-10", "INIT-15", "INIT-20"], "typ": "DECYZJA_ZARZADU", "uzasadnienie": "3 warianty cennika gotowe do przeglądu zarządu. Status on_track — decyzja zarządu odblokuje 4 downstream.", "rekomendacja": "Zatwierdź lub wskaż preferowany wariant cennika SME na najbliższym spotkaniu zarządu.", "dlaczego": "INIT-05 jest on_track, ale bez decyzji o wariancie cennika nie mogą ruszyć: INIT-06, INIT-10, INIT-15, INIT-20.", "score": 20, "priority": "p1"}, {"id": "INIT-15", "rola": "DIRECT_ACTION", "nazwa": "Model predykcji odejść klientów SME", "dzial": "Pricing & Revenue Management", "status": "blocked", "postep": 10, "staleness": 20, "downstream": [], "bad_downstream": [], "typ": "BRAK_ZASOBU", "uzasadnienie": "Blocked. Ostatnia aktualizacja 20 dni temu. Brak właściciela technicznego od 3 tygodni. Właściciel = sponsor (ta sama osoba).", "rekomendacja": "Przydziel właściciela technicznego do INIT-15. Inicjatywa nie ruszy bez tej roli nawet po odblokowaniu upstream.", "dlaczego": "To lokalna blokada organizacyjna niezależna od zależności upstream. Wymaga decyzji o zasobach.", "score": 18, "priority": "p1"}, {"id": "INIT-03", "rola": "ROOT_CAUSE", "nazwa": "Segmentacja klientów pod kątem cross-sell", "dzial": "Marketing Commercial", "status": "on_track", "postep": 70, "staleness": 3, "downstream": ["INIT-04", "INIT-16"], "bad_downstream": ["INIT-04"], "typ": "DECYZJA_ZARZADU", "uzasadnienie": "INIT-04 potrzebuje finalnego modelu segmentacji do 25 sierpnia — termin startu 1 września zagrożony.", "rekomendacja": "Zatwierdź/zamknij model segmentacji INIT-03 — deadline downstream INIT-04 to 25.08.", "dlaczego": "Data snapshot: 25.08. Termin INIT-04 (start 1.09) jest zagrożony jeśli INIT-03 nie zamknie się dziś.", "score": 14, "priority": "p1"}, {"id": "INIT-18", "rola": "DIRECT_ACTION", "nazwa": "Ujednolicenie KPI sprzedażowych między regionami", "dzial": "Sales Ops PL", "status": "at_risk", "postep": 25, "staleness": 16, "downstream": [], "bad_downstream": [], "typ": "BRAK_KOMUNIKACJI", "uzasadnienie": "16 dni bez aktualizacji. Ryzyko przesunięcia terminu o miesiąc. Dwie zależności w locie (INIT-12, INIT-17).", "rekomendacja": "Zrebaseline'uj plan INIT-18: potwierdź z właścicielami INIT-12 i INIT-17 kiedy będą dostępne realne outputy.", "dlaczego": "INIT-12 w UAT, INIT-17 pilot startuje 1.09 — INIT-18 może czekać na wyniki pilotażu, nie tylko jego start.", "score": 10, "priority": "p2"}, {"id": "INIT-14", "rola": "DIRECT_ACTION", "nazwa": "Automatyczne raporty tygodniowe dla regionów", "dzial": "Sales Ops PL", "status": "at_risk", "postep": 35, "staleness": 14, "downstream": [], "bad_downstream": [], "typ": "BRAK_KOMUNIKACJI", "uzasadnienie": "Struktura danych INIT-12 zmieniła się bez powiadomienia. Problem data-contract governance.", "rekomendacja": "Ustanów protokół change-notification między INIT-12 a zależnymi zespołami. Jednorazowa synchronizacja schematu.", "dlaczego": "Problem leży na styku INIT-12 ↔ INIT-14. Wymaga governance, nie eskalacji.", "score": 8, "priority": "p2"}, {"id": "INIT-07", "rola": "ROOT_CAUSE", "nazwa": "Automatyczne wykrywanie ryzyka churnu", "dzial": "Customer Success", "status": "on_track", "postep": 80, "staleness": 2, "downstream": ["INIT-08", "INIT-15"], "bad_downstream": ["INIT-08", "INIT-15"], "typ": "BRAK_ZAMROZENIA_ZAKRESU", "uzasadnienie": "Go-live 5 września. INIT-08 zablokowany i czeka. Potwierdź gotowość dostawy.", "rekomendacja": "Potwierdź gotowość INIT-07 do go-live 5.09 z zespołem Customer Success — INIT-08 i INIT-15 czekają.", "dlaczego": "INIT-07 jest on_track i blisko finału (80%). Potrzebne potwierdzenie terminu, nie interwencja w zakres.", "score": 7, "priority": "p2"}, {"id": "INIT-06", "rola": "IMPACT", "nazwa": "Dynamiczne rabaty wolumenowe", "dzial": "Pricing & Revenue Management", "status": "at_risk", "postep": 25, "staleness": 15, "downstream": ["INIT-20"], "bad_downstream": ["INIT-20"], "typ": "OCZEKIWANIE_NA_DANE", "uzasadnienie": "Prace wstrzymane — czekamy na decyzję o cenniku bazowym z INIT-05. Węzeł pośredni kaskady.", "rekomendacja": null, "dlaczego": "Główna interwencja: INIT-05. Po decyzji zarządu INIT-06 odblokuje się automatycznie.", "score": 5, "priority": "p2"}, {"id": "INIT-20", "rola": "IMPACT", "nazwa": "Konsolidacja cenników regionalnych do jednego systemu", "dzial": "Pricing & Revenue Management", "status": "blocked", "postep": 5, "staleness": 23, "downstream": [], "bad_downstream": [], "typ": "OCZEKIWANIE_NA_DANE", "uzasadnienie": "Blocked. Ostatnia aktualizacja 23 dni temu. Zespół przeniesiony. Kaskada: INIT-05 → INIT-06 → INIT-20.", "rekomendacja": null, "dlaczego": "Śledź jako downstream INIT-05/INIT-06. Interwencja bezpośrednia po rozwiązaniu upstream.", "score": 4, "priority": "p2"}, {"id": "INIT-08", "rola": "IMPACT", "nazwa": "Skrócenie czasu obsługi reklamacji o 30%", "dzial": "Customer Success", "status": "blocked", "postep": 15, "staleness": 13, "downstream": [], "bad_downstream": [], "typ": "OCZEKIWANIE_NA_DANE", "uzasadnienie": "Blocked. Ostatnia aktualizacja 13 dni temu. Zespół czeka na INIT-07 (go-live 5 września).", "rekomendacja": null, "dlaczego": "Interwencja: INIT-07 (potwierdzenie go-live). Uwaga: długie oczekiwanie może wymagać zarządzania morale.", "score": 3, "priority": "p2"}, {"id": "INIT-10", "rola": "IMPACT", "nazwa": "Lokalizacja cennika i ofert na rynek DACH", "dzial": "Regional Sales International", "status": "at_risk", "postep": 20, "staleness": 11, "downstream": [], "bad_downstream": [], "typ": "OCZEKIWANIE_NA_DANE", "uzasadnienie": "Dwa blokery: INIT-05 (cennik bazowy) i INIT-09 (zakres DACH). Oba on_track.", "rekomendacja": null, "dlaczego": "Śledź jako downstream INIT-05. INIT-09 on_track — nie wymaga eskalacji.", "score": 2, "priority": "p2"}, {"id": "INIT-04", "rola": "IMPACT", "nazwa": "Personalizowane kampanie mailingowe", "dzial": "Marketing Commercial", "status": "at_risk", "postep": 30, "staleness": 10, "downstream": [], "bad_downstream": [], "typ": "OCZEKIWANIE_NA_DANE", "uzasadnienie": "Termin 1 września zagrożony. Czeka na INIT-03 (deadline 25.08). Eskalacja należy do INIT-03.", "rekomendacja": null, "dlaczego": "Interwencja na poziomie INIT-03.", "score": 2, "priority": "p2"}, {"id": "INIT-02", "rola": "IMPACT", "nazwa": "Integracja generatora ofert z CRM", "dzial": "Sales Ops PL", "status": "blocked", "postep": 20, "staleness": 7, "downstream": [], "bad_downstream": [], "typ": "BRAK_ZAMROZENIA_ZAKRESU", "uzasadnienie": "Blocked. Ostatnia aktualizacja 7 dni temu. Czeka na zamrożenie szablonu z INIT-01.", "rekomendacja": null, "dlaczego": "INIT-01 on_track. Ewentualna interwencja: poproś o komunikację daty freeze szablonu.", "score": 1, "priority": "p2"}, {"id": "INIT-16", "rola": "MONITOR", "nazwa": "Wspólny słownik segmentów klientów (cross-team)", "dzial": "Marketing Commercial", "status": "on_track", "postep": 50, "staleness": 4, "downstream": [], "bad_downstream": [], "typ": "OCZEKIWANIE_NA_AKCEPTACJE", "uzasadnienie": "On_track. Notatka wskazuje na akceptację Pricing nieobecną w strukturze zależności.", "rekomendacja": null, "dlaczego": "Flaga danych: notatka wspomina akceptację Pricing której brak w polu zalezy_od. Wymaga potwierdzenia.", "score": 1, "priority": "p2"}], "brief": {"Customer Success": {"dzial": "Customer Success", "statuses": {"on_track": 3, "at_risk": 0, "blocked": 1}, "blokady_przychodzace": [{"inicjatywa": "INIT-08", "od": "INIT-07", "status_upstream": "on_track", "dzial_upstream": "Customer Success"}], "blokuje_innych": [{"inicjatywa": "INIT-07", "blokuje": "INIT-15", "dzial_downstream": "Pricing & Revenue Management"}], "przeterminowane": [{"id": "INIT-08", "nazwa_inicjatywy": "Skrócenie czasu obsługi reklamacji o 30%", "dzial": "Customer Success", "grupa_tematyczna": "Redukcja czasu obsługi reklamacji", "wlasciciel": "Karol Nowak", "sponsor": "Ewa Krawczyk", "status": "blocked", "postep_procent": "15", "data_ostatniej_aktualizacji": "2026-08-12", "zalezy_od": "INIT-07", "notatka_statusu": "Nie da się priorytetyzować kolejki reklamacji bez modelu ryzyka churnu z INIT-07. Zespół czeka, morale spada.", "dep": ["INIT-07"], "postep": 15, "staleness": 13, "downstream": [], "bad_downstream": []}], "inicjatywy": ["INIT-07", "INIT-08", "INIT-13", "INIT-19"]}, "Marketing Commercial": {"dzial": "Marketing Commercial", "statuses": {"on_track": 3, "at_risk": 1, "blocked": 0}, "blokady_przychodzace": [{"inicjatywa": "INIT-04", "od": "INIT-03", "status_upstream": "on_track", "dzial_upstream": "Marketing Commercial"}], "blokuje_innych": [], "przeterminowane": [], "inicjatywy": ["INIT-03", "INIT-04", "INIT-11", "INIT-16"]}, "Pricing & Revenue Management": {"dzial": "Pricing & Revenue Management", "statuses": {"on_track": 1, "at_risk": 1, "blocked": 2}, "blokady_przychodzace": [{"inicjatywa": "INIT-06", "od": "INIT-05", "status_upstream": "on_track", "dzial_upstream": "Pricing & Revenue Management"}, {"inicjatywa": "INIT-15", "od": "INIT-05", "status_upstream": "on_track", "dzial_upstream": "Pricing & Revenue Management"}, {"inicjatywa": "INIT-15", "od": "INIT-07", "status_upstream": "on_track", "dzial_upstream": "Customer Success"}, {"inicjatywa": "INIT-20", "od": "INIT-05", "status_upstream": "on_track", "dzial_upstream": "Pricing & Revenue Management"}, {"inicjatywa": "INIT-20", "od": "INIT-06", "status_upstream": "at_risk", "dzial_upstream": "Pricing & Revenue Management"}], "blokuje_innych": [{"inicjatywa": "INIT-05", "blokuje": "INIT-10", "dzial_downstream": "Regional Sales International"}], "przeterminowane": [{"id": "INIT-06", "nazwa_inicjatywy": "Dynamiczne rabaty wolumenowe", "dzial": "Pricing & Revenue Management", "grupa_tematyczna": "Optymalizacja cennika", "wlasciciel": "Bartek Malinowski", "sponsor": "Dorota Michalska", "status": "at_risk", "postep_procent": "25", "data_ostatniej_aktualizacji": "2026-08-10", "zalezy_od": "INIT-05", "notatka_statusu": "Prace wstrzymane - czekamy na decyzję o cenniku bazowym z INIT-05, bez tego nie da się ustalić progów rabatowych. Ostatnia aktualizacja 10 dni temu.", "dep": ["INIT-05"], "postep": 25, "staleness": 15, "downstream": ["INIT-20"], "bad_downstream": ["INIT-20"]}, {"id": "INIT-15", "nazwa_inicjatywy": "Model predykcji odejść klientów SME", "dzial": "Pricing & Revenue Management", "grupa_tematyczna": "Optymalizacja cennika", "wlasciciel": "Dorota Michalska", "sponsor": "Dorota Michalska (sponsor = exec)", "status": "blocked", "postep_procent": "10", "data_ostatniej_aktualizacji": "2026-08-05", "zalezy_od": "INIT-05, INIT-07", "notatka_statusu": "Projekt praktycznie zamrożony - czekamy jednocześnie na finalny cennik SME (INIT-05) i na dane z modelu churnu Customer Success (INIT-07). Brak właściciela technicznego od 3 tygodni.", "dep": ["INIT-05", "INIT-07"], "postep": 10, "staleness": 20, "downstream": [], "bad_downstream": []}, {"id": "INIT-20", "nazwa_inicjatywy": "Konsolidacja cenników regionalnych do jednego systemu", "dzial": "Pricing & Revenue Management", "grupa_tematyczna": "Optymalizacja cennika", "wlasciciel": "Bartek Malinowski", "sponsor": "Dorota Michalska", "status": "blocked", "postep_procent": "5", "data_ostatniej_aktualizacji": "2026-08-02", "zalezy_od": "INIT-05, INIT-06", "notatka_statusu": "Nie ruszymy z konsolidacją, dokąd nie zamknie się bazowy cennik SME (INIT-05) i logika rabatów wolumenowych (INIT-06). Zespół przeniesiony tymczasowo do innych zadań.", "dep": ["INIT-05", "INIT-06"], "postep": 5, "staleness": 23, "downstream": [], "bad_downstream": []}], "inicjatywy": ["INIT-05", "INIT-06", "INIT-15", "INIT-20"]}, "Regional Sales International": {"dzial": "Regional Sales International", "statuses": {"on_track": 2, "at_risk": 1, "blocked": 0}, "blokady_przychodzace": [{"inicjatywa": "INIT-10", "od": "INIT-05", "status_upstream": "on_track", "dzial_upstream": "Pricing & Revenue Management"}, {"inicjatywa": "INIT-10", "od": "INIT-09", "status_upstream": "on_track", "dzial_upstream": "Regional Sales International"}], "blokuje_innych": [{"inicjatywa": "INIT-17", "blokuje": "INIT-18", "dzial_downstream": "Sales Ops PL"}], "przeterminowane": [{"id": "INIT-10", "nazwa_inicjatywy": "Lokalizacja cennika i ofert na rynek DACH", "dzial": "Regional Sales International", "grupa_tematyczna": "Ekspansja rynków międzynarodowych", "wlasciciel": "Wiktor Lis", "sponsor": "Tomasz Górski", "status": "at_risk", "postep_procent": "20", "data_ostatniej_aktualizacji": "2026-08-14", "zalezy_od": "INIT-05, INIT-09", "notatka_statusu": "Potrzebujemy finalnego cennika bazowego z INIT-05 i potwierdzonego zakresu z INIT-09, żeby zacząć lokalizację. Dwa blokery na raz.", "dep": ["INIT-05", "INIT-09"], "postep": 20, "staleness": 11, "downstream": [], "bad_downstream": []}], "inicjatywy": ["INIT-09", "INIT-10", "INIT-17"]}, "Sales Ops PL": {"dzial": "Sales Ops PL", "statuses": {"on_track": 2, "at_risk": 2, "blocked": 1}, "blokady_przychodzace": [{"inicjatywa": "INIT-02", "od": "INIT-01", "status_upstream": "on_track", "dzial_upstream": "Sales Ops PL"}, {"inicjatywa": "INIT-14", "od": "INIT-12", "status_upstream": "on_track", "dzial_upstream": "Sales Ops PL"}, {"inicjatywa": "INIT-18", "od": "INIT-12", "status_upstream": "on_track", "dzial_upstream": "Sales Ops PL"}, {"inicjatywa": "INIT-18", "od": "INIT-17", "status_upstream": "on_track", "dzial_upstream": "Regional Sales International"}], "blokuje_innych": [], "przeterminowane": [{"id": "INIT-14", "nazwa_inicjatywy": "Automatyczne raporty tygodniowe dla regionów", "dzial": "Sales Ops PL", "grupa_tematyczna": "Automatyzacja ofertowania", "wlasciciel": "Piotr Zieliński", "sponsor": "Grzegorz Baran", "status": "at_risk", "postep_procent": "35", "data_ostatniej_aktualizacji": "2026-08-11", "zalezy_od": "INIT-12", "notatka_statusu": "Raporty mają korzystać z tych samych danych co dashboard z INIT-12, ale struktura danych w dashboardzie zmieniła się w ostatnim tygodniu bez informacji do naszego zespołu.", "dep": ["INIT-12"], "postep": 35, "staleness": 14, "downstream": [], "bad_downstream": []}, {"id": "INIT-18", "nazwa_inicjatywy": "Ujednolicenie KPI sprzedażowych między regionami", "dzial": "Sales Ops PL", "grupa_tematyczna": "Automatyzacja ofertowania", "wlasciciel": "Aneta Wiśniewska", "sponsor": "Grzegorz Baran", "status": "at_risk", "postep_procent": "25", "data_ostatniej_aktualizacji": "2026-08-09", "zalezy_od": "INIT-12, INIT-17", "notatka_statusu": "Chcemy oprzeć wspólne KPI na danych z dashboardu (INIT-12) i doświadczeniach pilotażu włoskiego (INIT-17), ale oba są jeszcze w toku - ryzyko przesunięcia terminu o miesiąc.", "dep": ["INIT-12", "INIT-17"], "postep": 25, "staleness": 16, "downstream": [], "bad_downstream": []}], "inicjatywy": ["INIT-01", "INIT-02", "INIT-12", "INIT-14", "INIT-18"]}}, "alerty": [{"id": "INIT-20", "msg": "INIT-20 — brak aktualizacji od 23 dni (blocked)", "dni": 23}, {"id": "INIT-15", "msg": "INIT-15 — brak aktualizacji od 20 dni (blocked)", "dni": 20}, {"id": "INIT-18", "msg": "INIT-18 — brak aktualizacji od 16 dni (at_risk)", "dni": 16}, {"id": "INIT-06", "msg": "INIT-06 — brak aktualizacji od 15 dni (at_risk)", "dni": 15}], "dzialy": ["Customer Success", "Marketing Commercial", "Pricing & Revenue Management", "Regional Sales International", "Sales Ops PL"]};
-let APP_DATA = DEFAULT_DATASET;
+// The ONLY built-in demo portfolio. Raw records go through the same
+// parseCSV -> buildDataFromRecs pipeline as any uploaded file.
+const DEMO_CSV = `id,nazwa_inicjatywy,dzial,grupa_tematyczna,wlasciciel,sponsor,status,postep_procent,data_ostatniej_aktualizacji,planned_start,planned_end,forecast_end,zalezy_od,notatka_statusu
+INIT-01,Automatyzacja generowania ofert standardowych,Sales Ops PL,Automatyzacja ofertowania,Aneta Wiśniewska,Grzegorz Baran,on_track,65,2026-08-20,2026-07-20,2026-09-04,2026-09-04,,"Szablon ofert wdrożony w 3 z 5 regionów, pilot pokazuje skrócenie czasu przygotowania oferty z 40 do 12 minut. Czekamy na feedback z regionu Śląsk."
+INIT-02,Integracja generatora ofert z CRM,Sales Ops PL,Automatyzacja ofertowania,Piotr Zieliński,Grzegorz Baran,blocked,20,2026-08-18,2026-08-03,2026-09-18,2026-10-02,INIT-01,"Nie możemy ruszyć z integracją, bo szablon z INIT-01 zmienia się co tydzień - potrzebujemy zamrożonej wersji do końca sierpnia."
+INIT-03,Segmentacja klientów pod kątem cross-sell,Marketing Commercial,Personalizacja komunikacji z klientem,Julia Sadowska,Karolina Wójcik,on_track,70,2026-08-22,2026-07-20,2026-08-28,2026-08-28,,"Model segmentacji gotowy, walidujemy na próbce 500 klientów. Wyniki obiecujące - trafność rekomendacji 78%."
+INIT-04,Personalizowane kampanie mailingowe,Marketing Commercial,Personalizacja komunikacji z klientem,Julia Sadowska,Karolina Wójcik,at_risk,30,2026-08-15,2026-08-03,2026-09-01,2026-09-08,INIT-03,"Kampanie czekają na finalny model segmentacji z INIT-03. Termin startu (1 września) jest zagrożony, jeśli INIT-03 nie zamknie się do 25 sierpnia."
+INIT-05,Rekalkulacja cennika dla segmentu SME,Pricing & Revenue Management,Optymalizacja cennika,Bartek Malinowski,Dorota Michalska,on_track,55,2026-08-21,2026-07-20,2026-08-28,2026-08-28,,"Analiza elastyczności cenowej zakończona, przygotowujemy propozycję 3 wariantów cennika do przeglądu z zarządem."
+INIT-06,Dynamiczne rabaty wolumenowe,Pricing & Revenue Management,Optymalizacja cennika,Bartek Malinowski,Dorota Michalska,at_risk,25,2026-08-10,2026-08-03,2026-09-18,2026-10-02,INIT-05,"Prace wstrzymane - czekamy na decyzję o cenniku bazowym z INIT-05, bez tego nie da się ustalić progów rabatowych. Ostatnia aktualizacja 10 dni temu."
+INIT-07,Automatyczne wykrywanie ryzyka churnu,Customer Success,Redukcja czasu obsługi reklamacji,Karol Nowak,Ewa Krawczyk,on_track,80,2026-08-23,2026-07-13,2026-09-05,2026-09-05,,"Model predykcyjny w fazie testów na danych produkcyjnych, accuracy 82%. Planowany go-live 5 września."
+INIT-08,Skrócenie czasu obsługi reklamacji o 30%,Customer Success,Redukcja czasu obsługi reklamacji,Karol Nowak,Ewa Krawczyk,blocked,15,2026-08-12,2026-08-03,2026-09-25,2026-10-09,INIT-07,"Nie da się priorytetyzować kolejki reklamacji bez modelu ryzyka churnu z INIT-07. Zespół czeka, morale spada."
+INIT-09,Rozszerzenie oferty na rynek DACH,Regional Sales International,Ekspansja rynków międzynarodowych,Wiktor Lis,Tomasz Górski,on_track,40,2026-08-19,2026-07-27,2026-09-18,2026-09-18,,"Analiza konkurencyjna DACH zakończona, negocjacje z pierwszym partnerem logistycznym w toku."
+INIT-10,Lokalizacja cennika i ofert na rynek DACH,Regional Sales International,Ekspansja rynków międzynarodowych,Wiktor Lis,Tomasz Górski,at_risk,20,2026-08-14,2026-08-03,2026-09-30,2026-10-14,"INIT-05, INIT-09","Potrzebujemy finalnego cennika bazowego z INIT-05 i potwierdzonego zakresu z INIT-09, żeby zacząć lokalizację. Dwa blokery na raz."
+INIT-11,Program lojalnościowy dla partnerów B2B,Marketing Commercial,Personalizacja komunikacji z klientem,Grzegorz Adamczyk,Karolina Wójcik,on_track,60,2026-08-20,2026-07-20,2026-09-18,2026-09-18,,"Mechanika programu zatwierdzona przez prawny, przygotowujemy komunikację do pierwszej grupy pilotażowej."
+INIT-12,Dashboard sprzedaży regionalnej PL,Sales Ops PL,Automatyzacja ofertowania,Aneta Wiśniewska,Grzegorz Baran,on_track,90,2026-08-24,2026-07-06,2026-08-28,2026-08-28,,"Dashboard w finalnej fazie UAT, 2 zgłoszone poprawki kosmetyczne. Gotowy do wdrożenia produkcyjnego."
+INIT-13,Standaryzacja procesu onboardingu nowych klientów,Customer Success,Redukcja czasu obsługi reklamacji,Karolina Duda,Ewa Krawczyk,on_track,45,2026-08-17,2026-07-20,2026-09-25,2026-09-25,,"Nowy proces onboardingu przetestowany na 10 klientach, średni czas wdrożenia spadł z 14 do 9 dni."
+INIT-14,Automatyczne raporty tygodniowe dla regionów,Sales Ops PL,Automatyzacja ofertowania,Piotr Zieliński,Grzegorz Baran,at_risk,35,2026-08-11,2026-08-03,2026-09-18,2026-09-29,INIT-12,"Raporty mają korzystać z tych samych danych co dashboard z INIT-12, ale struktura danych w dashboardzie zmieniła się w ostatnim tygodniu bez informacji do naszego zespołu."
+INIT-15,Model predykcji odejść klientów SME,Pricing & Revenue Management,Optymalizacja cennika,Dorota Michalska,Dorota Michalska (sponsor = exec),blocked,10,2026-08-05,2026-07-27,2026-10-09,2026-10-30,"INIT-05, INIT-07",Projekt praktycznie zamrożony - czekamy jednocześnie na finalny cennik SME (INIT-05) i na dane z modelu churnu Customer Success (INIT-07). Brak właściciela technicznego od 3 tygodni.
+INIT-16,Wspólny słownik segmentów klientów (cross-team),Marketing Commercial,Personalizacja komunikacji z klientem,Julia Sadowska,Karolina Wójcik,on_track,50,2026-08-21,2026-08-03,2026-09-18,2026-09-18,INIT-03,"Słownik segmentów rozszerzony o definicje z zespołu Customer Success, do zamknięcia potrzebujemy jeszcze akceptacji Pricing."
+INIT-17,Pilotaż sprzedaży przez partnerów w regionie Włochy,Regional Sales International,Ekspansja rynków międzynarodowych,Hubert Krzeski,Tomasz Górski,on_track,55,2026-08-22,2026-07-20,2026-09-25,2026-09-25,,"Pierwszy partner podpisany, pilotaż startuje 1 września na ograniczonej liczbie lokalizacji."
+INIT-18,Ujednolicenie KPI sprzedażowych między regionami,Sales Ops PL,Automatyzacja ofertowania,Aneta Wiśniewska,Grzegorz Baran,at_risk,25,2026-08-09,2026-08-03,2026-10-02,2026-11-02,"INIT-12, INIT-17","Chcemy oprzeć wspólne KPI na danych z dashboardu (INIT-12) i doświadczeniach pilotażu włoskiego (INIT-17), ale oba są jeszcze w toku - ryzyko przesunięcia terminu o miesiąc."
+INIT-19,Automatyzacja follow-up po utraconych leadach,Customer Success,Redukcja czasu obsługi reklamacji,Karol Nowak,Ewa Krawczyk,on_track,65,2026-08-23,2026-07-20,2026-09-18,2026-09-18,,"Skrypty follow-up wdrożone dla 2 z 4 segmentów klientów, pierwsze wyniki: 12% leadów wróciło do rozmów."
+INIT-20,Konsolidacja cenników regionalnych do jednego systemu,Pricing & Revenue Management,Optymalizacja cennika,Bartek Malinowski,Dorota Michalska,blocked,5,2026-08-02,2026-07-27,2026-10-16,2026-11-13,"INIT-05, INIT-06","Nie ruszymy z konsolidacją, dokąd nie zamknie się bazowy cennik SME (INIT-05) i logika rabatów wolumenowych (INIT-06). Zespół przeniesiony tymczasowo do innych zadań."`;
+let APP_DATA = null;
+
+// ── I18N ─────────────────────────────────────────────────────────────
+// UI chrome + everything Radar *generates* (queue, brief, DQ, export) is
+// bilingual. The dataset itself (initiative names, status notes) stays in
+// its source language — precomputed Radar output carries an `_en` twin.
+// Frozen analysis snapshot — deliberately NOT the machine's current date.
+const ASOF = '2026-08-25';
+
+let LANG = 'en';
+let dqDismissed = false;
+
+// Polish numerals: 1 / 2-4 / 5+
+function plPL(n, one, few, many) {
+  if (n === 1) return one;
+  const l1 = n % 10, l2 = n % 100;
+  return (l1 >= 2 && l1 <= 4 && !(l2 >= 12 && l2 <= 14)) ? few : many;
+}
+const sfx = n => n === 1 ? '' : 's';
+
+const I18N = {
+  pl: {
+    appTitle:'Portfolio Radar',
+    tipMap:'Mapa', tipTable:'Tabela', tipBrief:'Brief', tipDq:'Jakość danych', tipCsv:'Wgraj CSV',
+    secStatus:'Status', secDept:'Dział',
+    selectAll:'zaznacz wszystkie', deselectAll:'odznacz wszystkie',
+    csvLabel:'Dane', csvUpload:'Wgraj własny CSV', csvLoaded:'✓ Wczytano własny plik',
+    btnExportMD:'Eksportuj MD', btnGenBrief:'Generuj brief',
+    tabMap:'Mapa zależności', tabTable:'Tabela inicjatyw', tabDq:'Jakość danych', tabBrief:'Brief per dział',
+    graphTitle:'Mapa zależności',
+    layoutCols:'Kolumny', layoutLanes:'Działy', layoutFree:'Swobodny',
+    zoomIn:'Powiększ', zoomOut:'Pomniejsz', resetView:'Resetuj widok',
+    legCritical:'krytyczny',
+    dqaViewAll:'Zobacz wszystkie', dqaGotIt:'Rozumiem',
+    queueTitle:'Kolejka interwencji', briefLink:'Brief per dział →',
+    thName:'Nazwa', thDept:'Dział', thOwner:'Właściciel', thProgress:'Postęp',
+    thSilent:'Dni ciszy', thDependsOn:'Zależy od', thBlocks:'Blokuje',
+    briefUsesFilters:'Brief używa filtrów z lewego panelu',
+
+    tabTimeline:'Oś czasu', tipTimeline:'Oś czasu', tlTitle:'Oś czasu inicjatyw',
+    tlColInitiative:'Inicjatywa',
+    tlLegForecast:'wariancja prognozy', tlLegStale:'brak aktualizacji >14d',
+    tlSnapshot: (day, mon, monNum) => `Stan na ${day}.${String(monNum).padStart(2,'0')}`,
+    tlUnavailableTitle:'Oś czasu niedostępna — ten zestaw danych nie zawiera ustrukturyzowanych dat harmonogramu.',
+    tlUnavailable:'Geometria osi czasu wymaga pól planned_start, planned_end i forecast_end. RADAR nie wyprowadza dat z postępu, statusu, zależności ani z notatek statusu.',
+    tlNoMatch:'Żadna inicjatywa nie pasuje do bieżących filtrów.',
+    tlRowNoDates:'brak dat harmonogramu',
+    tlForecastTip: fe => `Prognozowany koniec: ${fe}`,
+    tlStaleTip: n => `Brak aktualizacji od ${n} ${plPL(n,'dnia','dni','dni')}`,
+    secSchedule:'Harmonogram',
+    rowPlannedStart:'Planowany start', rowPlannedEnd:'Planowany koniec', rowForecastEnd:'Prognozowany koniec',
+    schedSlip: n => `+${n} ${plPL(n,'dzień','dni','dni')} vs plan`,
+
+    asOf: d => 'Stan na ' + d,
+    mainTitle:'Portfel inicjatyw',
+    mainMeta: (d, n, m) => `Stan na ${d} · ${n} ${plPL(n,'inicjatywa','inicjatywy','inicjatyw')} · ${m} ${plPL(m,'dział','działy','działów')}`,
+
+    dqaTitle: n => `Wykryto ${n} ${plPL(n,'problem','problemy','problemów')} z jakością danych`,
+    dqaConfirmed: n => `${n} ${plPL(n,'potwierdzony','potwierdzone','potwierdzonych')}`,
+    dqaLikely: n => `${n} ${plPL(n,'prawdopodobny','prawdopodobne','prawdopodobnych')}`,
+    dqaDesc: p => p + '. Kliknij „Zobacz wszystkie”, żeby sprawdzić szczegóły.',
+
+    chipBlocked:'zablokowane', chipAtRisk:'zagrożone',
+    chipWithDeps:'z zależnościami', chipMaxStale:'dni ciszy (max)',
+
+    notInQueue: id => `${id} — brak w kolejce interwencji`,
+    qSub: (p1, casc) => `${p1} ${plPL(p1,'wymaga','wymagają','wymaga')} interwencji · ${casc} w kaskadzie`,
+    ivWaiting: n => `${n} czeka`,
+    ivHint:'↓ kliknij po rekomendację',
+    ivRekLabel:'Proponowane działanie',
+    ivAffects: l => `Wpływa na: ${l}`,
+    btnAccept:'✓ Zatwierdź i kopiuj', btnSkip:'Pomiń', btnUndo:'Cofnij',
+    qApproved: n => `${n} ${plPL(n,'zatwierdzona','zatwierdzone','zatwierdzonych')}`,
+    qSkipped: n => `${n} ${plPL(n,'pominięta','pominięte','pominiętych')}`,
+    qRestore:'przywróć wszystkie',
+    qAllDone:'Wszystkie rekomendacje obsłużone.',
+    toastApproved:'Zatwierdzono i skopiowano ✓',
+    toastApprovedNoCopy:'Zatwierdzono ✓ (schowek zablokowany przez przeglądarkę)',
+    toastSkipped: id => `Pominięto ${id}`,
+    toastRestored:'Przywrócono kolejkę interwencji',
+    spApproved:'Rekomendacja zatwierdzona',
+    copyRec:'Rekomendacja: ', copyWhy:'Uzasadnienie: ',
+
+    spBlockedUpstream: u => `Inicjatywa jest zablokowana. Główna interwencja należy do upstream: <strong>${u}</strong>.`,
+    spAtRiskUpstream: u => `Inicjatywa jest zagrożona. Monitoruj upstream: <strong>${u}</strong>.`,
+    spBlockedWaiting: u => `Inicjatywa zablokowana. Czeka na: <strong>${u}</strong>.`,
+    spNoIvHead:'Brak bezpośredniej interwencji managementowej.',
+    spNoIvAffects: l => `Wpływa na: <strong>${l}</strong> — monitoruj status downstream.`,
+    spNoIv:'Brak eskalacji — inicjatywa jest on track bez ryzykownych zależności downstream.',
+    spCopyBtn:'✓ Zatwierdź i kopiuj rekomendację',
+    rowOwner:'Właściciel', rowSponsor:'Sponsor', rowLastUpdate:'Ostatnia aktualizacja', rowTheme:'Grupa tematyczna',
+    secDependsOn:'Zależy od', secBlocks:'Blokuje', secNote:'Notatka statusu', secRec:'Rekomendacja',
+
+    filterNoStatus: st => `bez ${st}`,
+    allDeptsStatuses:'wszystkie działy i statusy',
+    bH1:'Brief operacyjny',
+    bSub: d => `Stan na ${d} · Portfolio Radar`,
+    bNoDepts:'Brak działów — odznaczono wszystkie w filtrze.',
+    bState: (n, parts) => `${n} ${plPL(n,'inicjatywa','inicjatywy','inicjatyw')}: ${parts}.`,
+    bBlocked: n => `<strong>${n} ${plPL(n,'zablokowana','zablokowane','zablokowanych')}</strong>`,
+    bAtRisk: n => `${n} ${plPL(n,'zagrożona','zagrożone','zagrożonych')}`,
+    bOnTrack: n => `${n} on track`,
+    bNoIncoming:'Brak blokad przychodzących.',
+    bWaitsFor: (a, b, c) => `<strong>${a}</strong> czeka na ${b} (${c})`,
+    bNoCross:'Brak blokad międzydziałowych.',
+    bBlocks: (a, b, c) => `<strong>${a}</strong> blokuje ${b} (${c})`,
+    bAllFresh:'Wszystkie inicjatywy mają świeże dane.',
+    bStaleEntry: (id, d) => `${id} — ${d} ${plPL(d,'dzień','dni','dni')}`,
+    bNoActions:'Brak pilnych działań dla wybranych filtrów.',
+    bSecState:'Stan działu', bSecWaiting:'Na co czekacie',
+    bSecBlocking:'Które inne działy blokujecie', bSecTodo:'Do zrobienia', bSecUnknown:'Czego nie wiemy',
+
+    dqTagConfirmed:'POTWIERDZONE', dqTagLikely:'PRAWDOPODOBNE', dqTagInferred:'WNIOSKOWANE',
+    dqAiLabel:'Sygnał z notatki statusu',
+    dqH1:'Jakość danych',
+    dqSub: (d, n) => `Stan na ${d} · Wykryto ${n} ${plPL(n,'kwestię','kwestie','kwestii')} wymagające uwagi`,
+    dqSecConfirmed: n => `Potwierdzone problemy strukturalne (${n})`,
+    dqSecLikely: n => `Prawdopodobne problemy (${n})`,
+    dqSecInferred: n => `Wnioskowane / do weryfikacji (${n})`,
+    dqAssumptions:'ℹ️ Założenia przyjęte w analizie',
+    dqA1:'<strong>Świeżość danych</strong> oznacza „dni od ostatniej aktualizacji”, nie „dni w aktualnym statusie”',
+    dqA2: d => `<strong>Data analizy</strong> przyjęta jako zamrożony snapshot: ${d} (nie pochodzi z pola w CSV)`,
+    dqA3:'<strong>Oś czasu</strong> opiera się wyłącznie na polach <code>planned_start</code>, <code>planned_end</code> i <code>forecast_end</code>; terminy wspomniane w notatkach statusu są sygnałem kontekstowym i nigdy ich nie nadpisują',
+    dqA4:'<strong>Zależności</strong> oparte wyłącznie na polu <code>zalezy_od</code>; możliwe nieformalne zależności w notatkach',
+
+    csvTooFew:'Błąd: za mało wierszy w CSV',
+    csvLoadedToast: (f, n) => `Wczytano: ${f} (${n} ${plPL(n,'inicjatywa','inicjatywy','inicjatyw')})`,
+    csvParseErr: m => 'Błąd parsowania CSV: ' + m,
+
+    mdTitle:'# Brief operacyjny — portfel inicjatyw',
+    mdAsOf: d => `Stan na ${d}`,
+    mdFilters: f => ` (filtry: ${f})`,
+    mdDepts: l => `działy: ${l}`,
+    mdCount: (n, on, at, bl) => `**${n} ${plPL(n,'inicjatywa','inicjatywy','inicjatyw')}** · ${on} on track · ${at} at risk · ${bl} blocked`,
+    mdWaiting:'**Na co czekacie:**',
+    mdBlocking:'**Które inne działy blokujecie:**',
+    mdTodo:'**Do zrobienia:**',
+    mdUnknown:'**Czego nie wiemy:**',
+    mdNone:'Brak.', mdNoCross:'Brak blokad międzydziałowych.',
+    mdToast:'Pobrano brief.md ✓'
+  },
+
+  en: {
+    appTitle:'Portfolio Radar',
+    tipMap:'Map', tipTable:'Table', tipBrief:'Brief', tipDq:'Data quality', tipCsv:'Upload CSV',
+    secStatus:'Status', secDept:'Department',
+    selectAll:'select all', deselectAll:'deselect all',
+    csvLabel:'Data', csvUpload:'Upload your own CSV', csvLoaded:'✓ Custom file loaded',
+    btnExportMD:'Export MD', btnGenBrief:'Generate brief',
+    tabMap:'Dependency map', tabTable:'Initiative table', tabDq:'Data quality', tabBrief:'Brief per department',
+    graphTitle:'Dependency map',
+    layoutCols:'Columns', layoutLanes:'Departments', layoutFree:'Free',
+    zoomIn:'Zoom in', zoomOut:'Zoom out', resetView:'Reset view',
+    legCritical:'critical',
+    dqaViewAll:'View all', dqaGotIt:'Got it',
+    queueTitle:'Intervention queue', briefLink:'Brief per department →',
+    thName:'Name', thDept:'Department', thOwner:'Owner', thProgress:'Progress',
+    thSilent:'Days silent', thDependsOn:'Depends on', thBlocks:'Blocks',
+    briefUsesFilters:'Brief uses the filters from the left panel',
+
+    tabTimeline:'Portfolio Timeline', tipTimeline:'Timeline', tlTitle:'Portfolio Timeline',
+    tlColInitiative:'Initiative',
+    tlLegForecast:'forecast variance', tlLegStale:'no update >14d',
+    tlSnapshot: (day, mon) => `Snapshot · ${day} ${mon}`,
+    tlUnavailableTitle:'Timeline unavailable — this dataset does not contain structured schedule dates.',
+    tlUnavailable:'Timeline geometry needs planned_start, planned_end and forecast_end. RADAR does not infer schedule dates from progress, status, dependencies or status notes.',
+    tlNoMatch:'No initiatives match the current filters.',
+    tlRowNoDates:'no schedule dates',
+    tlForecastTip: fe => `Forecast end: ${fe}`,
+    tlStaleTip: n => `No update for ${n} day${sfx(n)}`,
+    secSchedule:'Schedule',
+    rowPlannedStart:'Planned start', rowPlannedEnd:'Planned end', rowForecastEnd:'Forecast end',
+    schedSlip: n => `+${n} day${sfx(n)} vs plan`,
+
+    asOf: d => 'As of ' + d,
+    mainTitle:'Initiative portfolio',
+    mainMeta: (d, n, m) => `As of ${d} · ${n} initiative${sfx(n)} · ${m} department${sfx(m)}`,
+
+    dqaTitle: n => `${n} data quality issue${sfx(n)} detected`,
+    dqaConfirmed: n => `${n} confirmed`,
+    dqaLikely: n => `${n} likely`,
+    dqaDesc: p => p + '. Click “View all” to see the details.',
+
+    chipBlocked:'blocked', chipAtRisk:'at risk',
+    chipWithDeps:'with dependencies', chipMaxStale:'days silent (max)',
+
+    notInQueue: id => `${id} — not in the intervention queue`,
+    qSub: (p1, casc) => `${p1} need${p1 === 1 ? 's' : ''} intervention · ${casc} in cascade`,
+    ivWaiting: n => `${n} waiting`,
+    ivHint:'↓ click for the recommendation',
+    ivRekLabel:'Proposed action',
+    ivAffects: l => `Affects: ${l}`,
+    btnAccept:'✓ Approve & copy', btnSkip:'Skip', btnUndo:'Undo',
+    qApproved: n => `${n} approved`,
+    qSkipped: n => `${n} skipped`,
+    qRestore:'restore all',
+    qAllDone:'Every recommendation has been handled.',
+    toastApproved:'Approved & copied ✓',
+    toastApprovedNoCopy:'Approved ✓ (clipboard blocked by the browser)',
+    toastSkipped: id => `Skipped ${id}`,
+    toastRestored:'Intervention queue restored',
+    spApproved:'Recommendation approved',
+    copyRec:'Recommendation: ', copyWhy:'Rationale: ',
+
+    spBlockedUpstream: u => `This initiative is blocked. The primary intervention sits upstream: <strong>${u}</strong>.`,
+    spAtRiskUpstream: u => `This initiative is at risk. Monitor upstream: <strong>${u}</strong>.`,
+    spBlockedWaiting: u => `Initiative blocked. Waiting for: <strong>${u}</strong>.`,
+    spNoIvHead:'No direct management intervention.',
+    spNoIvAffects: l => `Affects: <strong>${l}</strong> — monitor downstream status.`,
+    spNoIv:'No escalation — on track, with no at-risk downstream dependencies.',
+    spCopyBtn:'✓ Approve & copy recommendation',
+    rowOwner:'Owner', rowSponsor:'Sponsor', rowLastUpdate:'Last update', rowTheme:'Theme group',
+    secDependsOn:'Depends on', secBlocks:'Blocks', secNote:'Status note', secRec:'Recommendation',
+
+    filterNoStatus: st => `no ${st}`,
+    allDeptsStatuses:'all departments and statuses',
+    bH1:'Operating brief',
+    bSub: d => `As of ${d} · Portfolio Radar`,
+    bNoDepts:'No departments — all of them are deselected in the filter.',
+    bState: (n, parts) => `${n} initiative${sfx(n)}: ${parts}.`,
+    bBlocked: n => `<strong>${n} blocked</strong>`,
+    bAtRisk: n => `${n} at risk`,
+    bOnTrack: n => `${n} on track`,
+    bNoIncoming:'No incoming blockers.',
+    bWaitsFor: (a, b, c) => `<strong>${a}</strong> is waiting on ${b} (${c})`,
+    bNoCross:'No cross-department blockers.',
+    bBlocks: (a, b, c) => `<strong>${a}</strong> blocks ${b} (${c})`,
+    bAllFresh:'All initiatives have fresh data.',
+    bStaleEntry: (id, d) => `${id} — ${d} day${sfx(d)}`,
+    bNoActions:'No urgent actions for the selected filters.',
+    bSecState:'Department state', bSecWaiting:'What you are waiting for',
+    bSecBlocking:'Which departments you are blocking', bSecTodo:'To do', bSecUnknown:'What we do not know',
+
+    dqTagConfirmed:'CONFIRMED', dqTagLikely:'LIKELY', dqTagInferred:'INFERRED',
+    dqAiLabel:'Signal from the status note',
+    dqH1:'Data quality',
+    dqSub: (d, n) => `As of ${d} · ${n} issue${sfx(n)} requiring attention`,
+    dqSecConfirmed: n => `Confirmed structural issues (${n})`,
+    dqSecLikely: n => `Likely issues (${n})`,
+    dqSecInferred: n => `Inferred / to verify (${n})`,
+    dqAssumptions:'ℹ️ Assumptions used in this analysis',
+    dqA1:'<strong>Data freshness</strong> means “days since the last update”, not “days in the current status”',
+    dqA2: d => `<strong>Analysis date</strong> is a frozen snapshot: ${d} (it does not come from a CSV field)`,
+    dqA3:'<strong>The timeline</strong> is driven solely by <code>planned_start</code>, <code>planned_end</code> and <code>forecast_end</code>; deadlines mentioned in status notes are contextual signals and never override them',
+    dqA4:'<strong>Dependencies</strong> rely solely on the <code>zalezy_od</code> field; informal dependencies may hide in the notes',
+
+    csvTooFew:'Error: too few rows in the CSV',
+    csvLoadedToast: (f, n) => `Loaded: ${f} (${n} initiative${sfx(n)})`,
+    csvParseErr: m => 'CSV parsing error: ' + m,
+
+    mdTitle:'# Operating brief — initiative portfolio',
+    mdAsOf: d => `As of ${d}`,
+    mdFilters: f => ` (filters: ${f})`,
+    mdDepts: l => `departments: ${l}`,
+    mdCount: (n, on, at, bl) => `**${n} initiative${sfx(n)}** · ${on} on track · ${at} at risk · ${bl} blocked`,
+    mdWaiting:'**What you are waiting for:**',
+    mdBlocking:'**Which departments you are blocking:**',
+    mdTodo:'**To do:**',
+    mdUnknown:'**What we do not know:**',
+    mdNone:'None.', mdNoCross:'No cross-department blockers.',
+    mdToast:'Downloaded brief.md ✓'
+  }
+};
+
+function t(k, ...a) {
+  const dict = I18N[LANG] || I18N.en;
+  const v = (k in dict) ? dict[k] : I18N.en[k];
+  if (v === undefined) return k;
+  return typeof v === 'function' ? v(...a) : v;
+}
+
+// Language variant of a precomputed field: Radar output carries `<field>_en`.
+function tf(obj, field) {
+  if (!obj) return null;
+  if (LANG !== 'pl') {
+    const k = field + '_en';
+    if (k in obj) return obj[k];
+  }
+  return obj[field];
+}
+
+function applyStaticLang() {
+  document.documentElement.lang = LANG;
+  document.title = t('appTitle');
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.dataset.i18nTitle); });
+}
+
+function setLang(l) {
+  if (l === LANG) return;
+  LANG = l;
+  document.getElementById('lang-en').classList.toggle('active', l === 'en');
+  document.getElementById('lang-pl').classList.toggle('active', l === 'pl');
+  applyStaticLang();
+  if (APP_DATA) delete APP_DATA.dqIssues; // DQ findings are generated per language
+  renderAll();
+}
+
 
 // ── STATE ──
 const S = {
@@ -511,9 +903,16 @@ const S = {
   sortCol: 'id',
   sortDir: 1,
   tab: 'mapa',
+  // Queue triage state, keyed by initiative id so it survives re-renders
+  // (language switch, filter changes). Reset only when a new dataset boots.
+  accepted: new Set(),
+  skipped: new Set(),
 };
 
 const DEPT_COLORS = {};
+const STATUS_COLOR = {on_track:'#22c55e', at_risk:'#FFD100', blocked:'#d93025'};
+const STATUS_BG    = {on_track:'#f0fdf4', at_risk:'#fffbeb', blocked:'#fef2f2'};
+const STATUS_TEXT  = {on_track:'#166534', at_risk:'#78350f', blocked:'#991b1b'};
 const PALETTE = ['#e63946','#2a9d8f','#e9c46a','#6366f1','#f4a261','#264653'];
 
 // Role labels (nowa taksonomia v7)
@@ -524,16 +923,30 @@ const ROLE_LABEL = {
   MONITOR: 'monitor'
 };
 // Legacy blocker type labels (używane w side panelu dla starego datasetu)
-const BADGE_LABEL = {
-  DECYZJA_ZARZADU:'decyzja zarządu', BRAK_ZASOBU:'brak zasobu',
-  BRAK_ZAMROZENIA_ZAKRESU:'zamrożenie zakresu', BRAK_KOMUNIKACJI:'komunikacja',
-  OCZEKIWANIE_NA_DANE:'oczekiwanie na dane', OCZEKIWANIE_NA_AKCEPTACJE:'oczekiwanie na akceptację',
-  ROOT_CAUSE:'root cause', DIRECT_ACTION:'direct action', IMPACT:'impact', MONITOR:'monitor'
+const BADGE_LABEL_I18N = {
+  pl: {
+    DECYZJA_ZARZADU:'decyzja zarządu', BRAK_ZASOBU:'brak zasobu',
+    BRAK_ZAMROZENIA_ZAKRESU:'zamrożenie zakresu', BRAK_KOMUNIKACJI:'komunikacja',
+    OCZEKIWANIE_NA_DANE:'oczekiwanie na dane', OCZEKIWANIE_NA_AKCEPTACJE:'oczekiwanie na akceptację'
+  },
+  en: {
+    DECYZJA_ZARZADU:'board decision', BRAK_ZASOBU:'missing resource',
+    BRAK_ZAMROZENIA_ZAKRESU:'scope freeze', BRAK_KOMUNIKACJI:'communication',
+    OCZEKIWANIE_NA_DANE:'waiting for data', OCZEKIWANIE_NA_AKCEPTACJE:'waiting for approval'
+  }
 };
+// Role labels stay English in both languages (shared analyst taxonomy).
+function badgeLabel(k) {
+  return ROLE_LABEL[k] || (BADGE_LABEL_I18N[LANG] || BADGE_LABEL_I18N.en)[k] || '';
+}
 
 // ── INIT ──
 function boot(data) {
   APP_DATA = data;
+  dqDismissed = false;
+  S.accepted = new Set();
+  S.skipped = new Set();
+  applyStaticLang();
   APP_DATA.dzialy.forEach((d,i) => DEPT_COLORS[d] = PALETTE[i % PALETTE.length]);
   S.deptFilter = new Set();
   S.statusFilter = new Set(['on_track','at_risk','blocked']);
@@ -542,9 +955,9 @@ function boot(data) {
 
 function renderAll() {
   const d = APP_DATA;
-  document.getElementById('lp-asof').textContent = 'Stan na ' + d.asof;
-  document.getElementById('main-title').textContent = 'Portfel inicjatyw';
-  document.getElementById('main-meta').textContent = `Stan na ${d.asof} · ${d.inicjatywy.length} inicjatyw · ${d.dzialy.length} działów`;
+  document.getElementById('lp-asof').textContent = t('asOf', d.asof);
+  document.getElementById('main-title').textContent = t('mainTitle');
+  document.getElementById('main-meta').textContent = t('mainMeta', d.asof, d.inicjatywy.length, d.dzialy.length);
   renderAlerts(d.alerty);
   renderCounts(d.inicjatywy);
   renderDeptList(d.inicjatywy, d.dzialy);
@@ -552,13 +965,14 @@ function renderAll() {
   renderGraph(d.inicjatywy);
   renderQueue(d.interwencje);
   renderTable(d.inicjatywy);
-  renderBriefSelect(d.dzialy);
+  renderTimeline();
   renderBrief();
   renderDQ(d);
   showDqAlert(d);
 }
 
 function hideDqAlert() {
+  dqDismissed = true;
   const el = document.getElementById('dq-alert');
   if(el) el.style.display = 'none';
 }
@@ -567,16 +981,14 @@ function showDqAlert(d) {
   const issues = (d.dqIssues || []).filter(i => i.severity !== 'inferred');
   const el = document.getElementById('dq-alert');
   if(!el) return;
-  if(!issues.length) { el.style.display='none'; return; }
+  if(!issues.length || dqDismissed) { el.style.display='none'; return; }
   const confirmed = issues.filter(i=>i.severity==='confirmed').length;
   const likely = issues.filter(i=>i.severity==='likely').length;
-  document.getElementById('dqa-title').textContent =
-    `Wykryto ${issues.length} problem${issues.length===1?'':'ów'} z jakością danych`;
+  document.getElementById('dqa-title').textContent = t('dqaTitle', issues.length);
   const parts = [];
-  if(confirmed) parts.push(`${confirmed} potwierdzon${confirmed===1?'y':'e'}`);
-  if(likely) parts.push(`${likely} prawdopodobn${likely===1?'y':'e'}`);
-  document.getElementById('dqa-desc').textContent =
-    parts.join(', ') + '. Kliknij „Zobacz wszystkie" żeby sprawdzić szczegóły.';
+  if(confirmed) parts.push(t('dqaConfirmed', confirmed));
+  if(likely) parts.push(t('dqaLikely', likely));
+  document.getElementById('dqa-desc').textContent = t('dqaDesc', parts.join(', '));
   el.style.display = 'flex';
 }
 
@@ -585,7 +997,10 @@ function renderAlerts(alerty) {
   const el = document.getElementById('alert-items');
   if (!alerty.length) { document.getElementById('alert-bar').style.display='none'; return; }
   document.getElementById('alert-bar').style.display='flex';
-  el.innerHTML = alerty.map(a => `<span class="alert-item"><b>${a.id}</b> — ${a.msg.replace(a.id+' — ','')}</span>`).join('');
+  el.innerHTML = alerty.map(a => {
+    const msg = tf(a,'msg') || a.msg;
+    return `<span class="alert-item"><b>${a.id}</b> — ${msg.replace(a.id+' — ','')}</span>`;
+  }).join('');
 }
 
 // ── COUNTS ──
@@ -604,7 +1019,8 @@ function syncCheckboxUI() {
   });
   // Etykieta przycisku: wszystkie zaznaczone → "odznacz wszystkie", inaczej "zaznacz wszystkie"
   const statusBtn = document.querySelector('.select-all-status');
-  if(statusBtn) statusBtn.textContent = S.statusFilter.size === all.length ? 'odznacz wszystkie' : 'zaznacz wszystkie';
+  if(statusBtn) statusBtn.textContent = t(S.statusFilter.size === all.length ? 'deselectAll' : 'selectAll');
+  updateDeptBtn(); // keep the department button label in sync on every render (incl. language switch)
   document.querySelectorAll('.dzial-row').forEach(el => {
     const d = el.dataset.dzial;
     // selected = widoczny = NIE jest w hide-set deptFilter
@@ -613,10 +1029,15 @@ function syncCheckboxUI() {
 }
 
 // ── DEPT LIST ──
+function shortDept(d) {
+  return d.replace('& Revenue Management','').replace('International','Intl')
+          .replace('Commercial','Comm.').replace('Operacje ','Op. ');
+}
+
 function renderDeptList(recs, dzialy) {
   document.getElementById('dept-list').innerHTML = dzialy.map(d => {
     const n = recs.filter(r=>r.dzial===d).length;
-    const short = d.replace('& Revenue Management','').replace('International','Intl').replace('Commercial','Comm.').replace('Operacje ','Op. ');
+    const short = shortDept(d);
     const sel = !S.deptFilter.has(d); // selected = widoczny (NIE w hide-set)
     return `<div class="dzial-row${sel?' selected':''}" data-dzial="${d}" onclick="toggleDept('${d}')">
       <div class="dr-bar" style="background:${DEPT_COLORS[d]||'#bbb'}"></div>
@@ -647,7 +1068,7 @@ function toggleAllStatus() {
   }
   // Aktualizuj etykietę przycisku
   const btn = document.querySelector('.select-all-status');
-  if(btn) btn.textContent = S.statusFilter.size === all.length ? 'odznacz wszystkie' : 'zaznacz wszystkie';
+  if(btn) btn.textContent = t(S.statusFilter.size === all.length ? 'deselectAll' : 'selectAll');
   syncCheckboxUI(); applyFilters();
 }
 
@@ -669,7 +1090,7 @@ function updateDeptBtn() {
   // deptFilter = zbiór UKRYTYCH działów (blocked-list)
   // pusty = nic nie ukryto = wszystkie widoczne → "odznacz wszystkie"
   // Set(all) = wszystkie ukryte = żadne widoczne → "zaznacz wszystkie"
-  btn.textContent = S.deptFilter.size === 0 ? 'odznacz wszystkie' : 'zaznacz wszystkie';
+  btn.textContent = t(S.deptFilter.size === 0 ? 'deselectAll' : 'selectAll');
 }
 
 function toggleAllDept() {
@@ -699,6 +1120,7 @@ function visibleIds() {
 function applyFilters() {
   const vis = visibleIds();
   if(S.tab==='brief') renderBrief();
+  renderTimeline(); // grouped rows are rebuilt rather than hidden, so empty groups disappear
 
   // table rows
   document.querySelectorAll('#tbody tr').forEach(tr => {
@@ -741,10 +1163,10 @@ function renderChips(recs) {
   const withDeps = recs.filter(r=>(r.dep||[]).length>0).length;
   const maxS = Math.max(...recs.map(r=>r.staleness||0));
   document.getElementById('stat-chips').innerHTML = `
-    <div class="chip"><div class="chip-val red">${bl}</div><div class="chip-label">zablokowane</div></div>
-    <div class="chip"><div class="chip-val yellow">${at}</div><div class="chip-label">zagrożone</div></div>
-    <div class="chip"><div class="chip-val">${withDeps}</div><div class="chip-label">z zależnościami</div></div>
-    <div class="chip"><div class="chip-val">${maxS}</div><div class="chip-label">dni ciszy (max)</div></div>`;
+    <div class="chip"><div class="chip-val red">${bl}</div><div class="chip-label">${t('chipBlocked')}</div></div>
+    <div class="chip"><div class="chip-val yellow">${at}</div><div class="chip-label">${t('chipAtRisk')}</div></div>
+    <div class="chip"><div class="chip-val">${withDeps}</div><div class="chip-label">${t('chipWithDeps')}</div></div>
+    <div class="chip"><div class="chip-val">${maxS}</div><div class="chip-label">${t('chipMaxStale')}</div></div>`;
 }
 
 // ── GRAPH: pan+zoom+drag+layouts ──
@@ -831,9 +1253,7 @@ function redrawGraph(recs) {
   const maxY=Math.max(...allY)+NODE_H+30;
   svgSize={w:maxX, h:maxY};
 
-  const statusColor={on_track:'#22c55e',at_risk:'#FFD100',blocked:'#d93025'};
-  const statusBg={on_track:'#f0fdf4',at_risk:'#fffbeb',blocked:'#fef2f2'};
-  const statusText={on_track:'#166534',at_risk:'#78350f',blocked:'#991b1b'};
+  const statusColor=STATUS_COLOR, statusBg=STATUS_BG, statusText=STATUS_TEXT;
 
   // lane backgrounds for 'lanes' layout
   let lanesBg='';
@@ -1099,19 +1519,16 @@ function nodeClick(id) {
 // ── DOUBLE CLICK: highlight in queue ──
 function nodeDoubleClick(id) {
   // find in queue
-  const idx=APP_DATA.interwencje.findIndex(i=>i.id===id);
-  if(idx>=0){
-    const el=document.getElementById('iv-'+idx);
-    if(el){
-      el.scrollIntoView({behavior:'smooth',block:'center'});
-      el.classList.add('queue-highlight');
-      setTimeout(()=>el.classList.remove('queue-highlight'),2200);
-      // auto-open expand
-      const exp=document.getElementById('ivx-'+idx);
-      if(exp&&!exp.classList.contains('open')) exp.classList.add('open');
-    }
+  const el=document.getElementById('iv-'+id);
+  if(el){
+    el.scrollIntoView({behavior:'smooth',block:'center'});
+    el.classList.add('queue-highlight');
+    setTimeout(()=>el.classList.remove('queue-highlight'),2200);
+    // auto-open expand
+    const exp=document.getElementById('ivx-'+id);
+    if(exp&&!exp.classList.contains('open')) exp.classList.add('open');
   } else {
-    showToast(`${id} — brak w kolejce interwencji`);
+    showToast(t('notInQueue', id));
   }
 }
 
@@ -1119,37 +1536,48 @@ function nodeDoubleClick(id) {
 function renderQueue(interwencje) {
   const p1=interwencje.filter(i=>i.priority==='p1').length;
   const allBad=new Set(interwencje.flatMap(i=>i.bad_downstream));
-  document.getElementById('q-sub').textContent=`${p1} wymagają interwencji · ${allBad.size} w kaskadzie`;
+  document.getElementById('q-sub').textContent=t('qSub', p1, allBad.size);
 
-  document.getElementById('queue-list').innerHTML=interwencje.map((iv,idx)=>{
+  // Approved and skipped items leave the queue, but stay in APP_DATA — the
+  // triage state lives in S, so a re-render never silently resurrects them.
+  const open=interwencje.filter(iv=>!S.accepted.has(iv.id)&&!S.skipped.has(iv.id));
+  const handled=interwencje.length-open.length;
+  const stateBar=handled>0?`<div class="iv-state">
+      ${[S.accepted.size?t('qApproved',S.accepted.size):'', S.skipped.size?t('qSkipped',S.skipped.size):''].filter(Boolean).join(' · ')}
+      <span class="iv-state-link" style="margin-left:auto" onclick="restoreQueue()">${t('qRestore')}</span>
+    </div>`:'';
+  const emptyMsg=open.length?'':`<div style="padding:16px 12px;font-size:11px;color:#bbb">${t('qAllDone')}</div>`;
+
+  document.getElementById('queue-list').innerHTML=stateBar+emptyMsg+open.map(iv=>{
     // Rola: preferuj nowe pole 'rola', fallback na stary typ
     const rola = iv.rola || null;
     let rolaBadge = '';
     if(rola && ROLE_LABEL[rola]) {
       rolaBadge = `<span class="iv-badge badge-${rola}">${ROLE_LABEL[rola]}</span>`;
     } else if(iv.typ) {
-      rolaBadge = `<span class="iv-badge badge-${iv.typ}">${BADGE_LABEL[iv.typ]||iv.typ}</span>`;
+      rolaBadge = `<span class="iv-badge badge-${iv.typ}">${badgeLabel(iv.typ)||iv.typ}</span>`;
     }
+    const rek=tf(iv,'rekomendacja'), why=tf(iv,'dlaczego'), uzas=tf(iv,'uzasadnienie')||'';
     const blast=iv.bad_downstream.length>0
-      ?`<span class="iv-blast hot">${iv.bad_downstream.length} czeka</span>`
+      ?`<span class="iv-blast hot">${t('ivWaiting', iv.bad_downstream.length)}</span>`
       :iv.downstream.length>0?`<span class="iv-blast warm">${iv.downstream.length}↓</span>`:'';
-    const hasExpand=!!iv.rekomendacja;
-    const hint=hasExpand?`<div class="iv-hint">↓ kliknij po rekomendację</div>`:'';
-    const expand=hasExpand?`<div class="iv-expand" id="ivx-${idx}">
-      <div class="iv-rek-label">Proponowane działanie</div>
-      <div class="iv-rek-box">${iv.rekomendacja||''}</div>
-      ${iv.dlaczego?`<div class="iv-why">${iv.dlaczego}</div>`:''}
-      ${iv.bad_downstream&&iv.bad_downstream.length?`<div class="iv-why" style="color:#d93025;font-size:10px">Wpływa na: ${iv.bad_downstream.join(', ')}</div>`:''}
+    const hasExpand=!!rek;
+    const hint=hasExpand?`<div class="iv-hint">${t('ivHint')}</div>`:'';
+    const expand=hasExpand?`<div class="iv-expand" id="ivx-${iv.id}">
+      <div class="iv-rek-label">${t('ivRekLabel')}</div>
+      <div class="iv-rek-box">${rek||''}</div>
+      ${why?`<div class="iv-why">${why}</div>`:''}
+      ${iv.bad_downstream&&iv.bad_downstream.length?`<div class="iv-why" style="color:#d93025;font-size:10px">${t('ivAffects', iv.bad_downstream.join(', '))}</div>`:''}
       <div class="iv-btns">
-        <button class="iv-btn-ok" onclick="acceptIv(event,${idx})">✓ Zatwierdź i kopiuj</button>
-        <button class="iv-btn-skip" onclick="skipIv(event,${idx})">Pomiń</button>
+        <button class="iv-btn-ok" onclick="acceptIv(event,'${iv.id}')">${t('btnAccept')}</button>
+        <button class="iv-btn-skip" onclick="skipIv(event,'${iv.id}')">${t('btnSkip')}</button>
       </div>
     </div>`:'';
 
-    const summary=(iv.uzasadnienie||'').slice(0,72)+((iv.uzasadnienie||'').length>72?'…':'');
+    const summary=uzas.slice(0,72)+(uzas.length>72?'…':'');
     // Priorytet: p1 czerwony, p2 żółty, p3/inne szary
     const prioClass = iv.priority==='p1'?'p1':iv.priority==='p2'?'p2':'';
-    return `<div class="iv ${prioClass}${!hasExpand?' no-expand':''}" id="iv-${idx}" onclick="${hasExpand?'toggleIv('+idx+')':''}">
+    return `<div class="iv ${prioClass}${!hasExpand?' no-expand':''}" id="iv-${iv.id}" onclick="${hasExpand?"toggleIv('"+iv.id+"')":''}">
       <div class="iv-top">
         <span class="iv-id">${iv.id}</span>
         <span class="iv-name">${iv.nazwa}</span>
@@ -1163,21 +1591,84 @@ function renderQueue(interwencje) {
   }).join('');
 }
 
-function toggleIv(idx){
-  const el=document.getElementById('ivx-'+idx);
+function toggleIv(id){
+  const el=document.getElementById('ivx-'+id);
   if(el) el.classList.toggle('open');
 }
-function acceptIv(e,idx){
-  e.stopPropagation();
-  const iv=APP_DATA.interwencje[idx];
-  const txt=`[${iv.id}] ${iv.nazwa}\nRekomendacja: ${iv.rekomendacja}\n${iv.dlaczego?'Uzasadnienie: '+iv.dlaczego:''}`;
-  navigator.clipboard.writeText(txt).catch(()=>{});
-  showToast('Skopiowano do schowka ✓');
-  document.getElementById('iv-'+idx).style.opacity='0.45';
+
+function ivText(iv){
+  const why=tf(iv,'dlaczego');
+  return `[${iv.id}] ${iv.nazwa}\n${t('copyRec')}${tf(iv,'rekomendacja')}\n${why?t('copyWhy')+why:''}`;
 }
-function skipIv(e,idx){
-  e.stopPropagation();
-  document.getElementById('iv-'+idx).style.display='none';
+
+// Async clipboard is refused in several contexts (file://, no focus, denied
+// permission). Fall back to execCommand and report what actually happened.
+function copyToClipboard(text){
+  const legacy=()=>{
+    try{
+      const ta=document.createElement('textarea');
+      ta.value=text;
+      ta.setAttribute('readonly','');
+      ta.style.cssText='position:fixed;top:-1000px;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok=document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    }catch(_){ return false; }
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    return navigator.clipboard.writeText(text).then(()=>true).catch(()=>legacy());
+  }
+  return Promise.resolve(legacy());
+}
+
+// Single approval path, shared by the queue card and the side panel.
+function approveIv(id){
+  const iv=(APP_DATA.interwencje||[]).find(i=>i.id===id);
+  if(!iv) return;
+  S.accepted.add(id);
+  S.skipped.delete(id);
+  copyToClipboard(ivText(iv)).then(ok=>showToast(t(ok?'toastApproved':'toastApprovedNoCopy')));
+  renderQueue(APP_DATA.interwencje);
+  refreshPanel(id);
+}
+
+function undoIv(id){
+  S.accepted.delete(id);
+  S.skipped.delete(id);
+  renderQueue(APP_DATA.interwencje);
+  refreshPanel(id);
+}
+
+function restoreQueue(){
+  S.accepted=new Set();
+  S.skipped=new Set();
+  renderQueue(APP_DATA.interwencje);
+  refreshPanel();
+  showToast(t('toastRestored'));
+}
+
+function acceptIv(e,id){
+  if(e) e.stopPropagation();
+  approveIv(id);
+}
+function skipIv(e,id){
+  if(e) e.stopPropagation();
+  S.skipped.add(id);
+  S.accepted.delete(id);
+  renderQueue(APP_DATA.interwencje);
+  refreshPanel(id);
+  showToast(t('toastSkipped', id));
+}
+
+// Repaint the side panel if it is open (optionally only for one initiative).
+function refreshPanel(id){
+  const panel=document.getElementById('side-panel');
+  if(!panel || !panel.classList.contains('open')) return;
+  const openId=panel.dataset.id;
+  if(!openId || (id && openId!==id)) return;
+  openPanel(openId);
 }
 
 // ── SIDE PANEL ──
@@ -1211,37 +1702,39 @@ function openPanel(id) {
 
   // intervention for this id — rozróżniamy stany
   const iv=APP_DATA.interwencje.find(i=>i.id===id);
+  const ivRek=tf(iv,'rekomendacja'), ivWhy=tf(iv,'dlaczego');
   let ivHTML='';
-  if(iv && iv.rekomendacja){
+  if(iv && ivRek){
     const rola = iv.rola || iv.typ;
-    const rolaLabel = ROLE_LABEL[rola] || BADGE_LABEL[rola] || rola || '';
+    const rolaLabel = badgeLabel(rola) || rola || '';
     const bc=`badge-${rola}`;
     ivHTML=`<div class="sp-intervention">
       ${rolaLabel?`<span class="sp-iv-badge ${bc}">${rolaLabel}</span>`:''}
-      <div class="sp-iv-rek">${iv.rekomendacja}</div>
-      ${iv.dlaczego?`<div class="sp-iv-why">${iv.dlaczego}</div>`:''}
-      ${iv.bad_downstream&&iv.bad_downstream.length?`<div class="sp-iv-why" style="color:#d93025;font-size:11px">Wpływa na: ${iv.bad_downstream.join(', ')}</div>`:''}
-      <button class="sp-iv-copy" onclick="copyIv('${id}')">✓ Zatwierdź i kopiuj rekomendację</button>
+      <div class="sp-iv-rek">${ivRek}</div>
+      ${ivWhy?`<div class="sp-iv-why">${ivWhy}</div>`:''}
+      ${iv.bad_downstream&&iv.bad_downstream.length?`<div class="sp-iv-why" style="color:#d93025;font-size:11px">${t('ivAffects', iv.bad_downstream.join(', '))}</div>`:''}
+      ${S.accepted.has(id)
+        ? `<div class="sp-iv-done">✓ ${t('spApproved')}<button class="sp-iv-undo" onclick="undoIv('${id}')">${t('btnUndo')}</button></div>`
+        : `<button class="sp-iv-copy" onclick="approveIv('${id}')">${t('spCopyBtn')}</button>`}
     </div>`;
-  } else if(iv && !iv.rekomendacja) {
-    // Jest w kolejce ale bez rekomendacji (IMPACT / czeka na upstream)
+  } else if(iv && !ivRek) {
+    // In the queue but with no recommendation (IMPACT / waiting on upstream)
     const rola = iv.rola || iv.typ;
-    const rolaLabel = ROLE_LABEL[rola] || BADGE_LABEL[rola] || '';
+    const rolaLabel = badgeLabel(rola);
     const bc = `badge-${rola}`;
     const upstream = (r.dep||[]).join(', ');
     ivHTML=`<div class="sp-intervention">
       ${rolaLabel?`<span class="sp-iv-badge ${bc}">${rolaLabel}</span>`:''}
       <div class="sp-iv-rek" style="color:#888">
-        ${r.status==='blocked'?`Inicjatywa jest zablokowana. Główna interwencja należy do upstream: <strong>${upstream||'—'}</strong>.`
-        :`Inicjatywa jest zagrożona. Monitoruj upstream: <strong>${upstream||'—'}</strong>.`}
+        ${r.status==='blocked'?t('spBlockedUpstream', upstream||'—'):t('spAtRiskUpstream', upstream||'—')}
       </div>
     </div>`;
   } else if(r.status==='blocked') {
-    // blocked ale nie ma w kolejce interwencji — pokaż stan faktyczny
+    // blocked but absent from the queue — show the factual state
     const upstream = (r.dep||[]).join(', ');
     ivHTML=`<div class="sp-intervention">
       <span class="sp-iv-badge badge-IMPACT">impact</span>
-      <div class="sp-iv-rek" style="color:#888">Inicjatywa zablokowana. Czeka na: <strong>${upstream||'—'}</strong>.</div>
+      <div class="sp-iv-rek" style="color:#888">${t('spBlockedWaiting', upstream||'—')}</div>
     </div>`;
   } else {
     // Sprawdź czy ma ryzykowny downstream mimo braku w kolejce
@@ -1252,11 +1745,11 @@ function openPanel(id) {
     const riskDs=anyDs.filter(id=>byidLocal[id]&&byidLocal[id].status!=='on_track');
     if(riskDs.length>0){
       ivHTML=`<div class="sp-no-iv" style="color:#666;font-style:normal">
-        Brak bezpośredniej interwencji managementowej.<br>
-        <span style="font-size:11px;color:#999;margin-top:4px;display:block">Wpływa na: <strong>${riskDs.join(', ')}</strong> — monitoruj status downstream.</span>
+        ${t('spNoIvHead')}<br>
+        <span style="font-size:11px;color:#999;margin-top:4px;display:block">${t('spNoIvAffects', riskDs.join(', '))}</span>
       </div>`;
     } else {
-      ivHTML=`<div class="sp-no-iv">Brak eskalacji — inicjatywa jest on track bez ryzykownych zależności downstream.</div>`;
+      ivHTML=`<div class="sp-no-iv">${t('spNoIv')}</div>`;
     }
   }
 
@@ -1268,15 +1761,17 @@ function openPanel(id) {
         <span style="font-size:12px;color:#888;font-weight:500">${r.postep}%</span>
       </div>
     </div>
-    <div class="sp-row"><span class="sp-row-label">Właściciel</span><span class="sp-row-val">${r.wlasciciel}</span></div>
-    <div class="sp-row"><span class="sp-row-label">Sponsor</span><span class="sp-row-val">${r.sponsor}</span></div>
-    <div class="sp-row"><span class="sp-row-label">Ostatnia aktualizacja</span><span class="sp-row-val${r.staleness>14?' stale':r.staleness>7?' warn-age':''}">${r.data_ostatniej_aktualizacji} (${r.staleness}d)</span></div>
-    <div class="sp-row"><span class="sp-row-label">Grupa tematyczna</span><span class="sp-row-val" style="font-size:11px">${r.grupa_tematyczna}</span></div>
-    ${r.dep&&r.dep.length?`<div class="sp-section"><div class="sp-sec-title">Zależy od</div><div>${depPills}</div></div>`:''}
-    ${blokujeIds.length?`<div class="sp-section"><div class="sp-sec-title">Blokuje</div><div>${blokujePills}</div></div>`:''}
-    <div class="sp-section"><div class="sp-sec-title">Notatka statusu</div><div style="font-size:12px;color:#555;line-height:1.6">${r.notatka_statusu||'—'}</div></div>
-    <div class="sp-section"><div class="sp-sec-title">Rekomendacja</div>${ivHTML}</div>`;
+    <div class="sp-row"><span class="sp-row-label">${t('rowOwner')}</span><span class="sp-row-val">${r.wlasciciel}</span></div>
+    <div class="sp-row"><span class="sp-row-label">${t('rowSponsor')}</span><span class="sp-row-val">${r.sponsor}</span></div>
+    <div class="sp-row"><span class="sp-row-label">${t('rowLastUpdate')}</span><span class="sp-row-val${r.staleness>14?' stale':r.staleness>7?' warn-age':''}">${r.data_ostatniej_aktualizacji} (${r.staleness}d)</span></div>
+    <div class="sp-row"><span class="sp-row-label">${t('rowTheme')}</span><span class="sp-row-val" style="font-size:11px">${r.grupa_tematyczna}</span></div>
+    ${schedulePanelHTML(r)}
+    ${r.dep&&r.dep.length?`<div class="sp-section"><div class="sp-sec-title">${t('secDependsOn')}</div><div>${depPills}</div></div>`:''}
+    ${blokujeIds.length?`<div class="sp-section"><div class="sp-sec-title">${t('secBlocks')}</div><div>${blokujePills}</div></div>`:''}
+    <div class="sp-section"><div class="sp-sec-title">${t('secNote')}</div><div style="font-size:12px;color:#555;line-height:1.6">${r.notatka_statusu||'—'}</div></div>
+    <div class="sp-section"><div class="sp-sec-title">${t('secRec')}</div>${ivHTML}</div>`;
 
+  document.getElementById('side-panel').dataset.id=id;
   document.getElementById('side-panel').classList.add('open');
   document.getElementById('panel-overlay').style.display='block';
   // highlight row in table
@@ -1285,17 +1780,26 @@ function openPanel(id) {
   if(tr) tr.classList.add('highlighted');
 }
 
-function closePanel() {
-  document.getElementById('side-panel').classList.remove('open');
-  document.getElementById('panel-overlay').style.display='none';
+// Structured schedule block for the shared side panel — rendered only when the
+// record actually carries usable dates. Never fabricated.
+function schedulePanelHTML(r) {
+  const {ps, pe, fe} = schedOf(r);
+  if(!ps && !pe && !fe) return '';
+  const slip = (pe && fe && fe > pe) ? Math.round((fe - pe) / DAY_MS) : 0;
+  const row = (label, val, extra='') =>
+    `<div class="sp-row"><span class="sp-row-label">${label}</span><span class="sp-row-val">${val || '—'}${extra}</span></div>`;
+  return `<div class="sp-section"><div class="sp-sec-title">${t('secSchedule')}</div>
+    ${row(t('rowPlannedStart'), ps ? r.planned_start : '')}
+    ${row(t('rowPlannedEnd'), pe ? r.planned_end : '')}
+    ${row(t('rowForecastEnd'), fe ? r.forecast_end : '',
+        slip ? ` <span style="color:#b45309;font-size:11px">(${t('schedSlip', slip)})</span>` : '')}
+  </div>`;
 }
 
-function copyIv(id) {
-  const iv=APP_DATA.interwencje.find(i=>i.id===id);
-  if(!iv) return;
-  const txt=`[${id}] ${iv.nazwa}\nRekomendacja: ${iv.rekomendacja}\n${iv.dlaczego?'Uzasadnienie: '+iv.dlaczego:''}`;
-  navigator.clipboard.writeText(txt).catch(()=>{});
-  showToast('Skopiowano do schowka ✓');
+function closePanel() {
+  document.getElementById('side-panel').classList.remove('open');
+  delete document.getElementById('side-panel').dataset.id;
+  document.getElementById('panel-overlay').style.display='none';
 }
 
 // ── TABLE ──
@@ -1345,8 +1849,6 @@ function sortBy(col) {
 }
 
 // ── BRIEF ──
-function renderBriefSelect(dzialy) { /* driven by global S filters now */ }
-
 function renderBrief() {
   const d=APP_DATA;
   const dzialy = d.dzialy.filter(dz => S.deptFilter.size===0 || !S.deptFilter.has(dz));
@@ -1355,18 +1857,17 @@ function renderBrief() {
 
   const filterPills=[];
   if(S.deptFilter.size>0) S.deptFilter.forEach(dz=>{
-    const short=dz.replace('& Revenue Management','').replace('International','Intl').replace('Commercial','Comm.').replace('Operacje ','Op. ');
-    filterPills.push(`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#f0f0ec;color:#555">${short}</span>`);
+    filterPills.push(`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#f0f0ec;color:#555">${shortDept(dz)}</span>`);
   });
-  ['on_track','at_risk','blocked'].forEach(s=>{
-    if(!S.statusFilter.has(s)) filterPills.push(`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#fee2e2;color:#991b1b">bez ${s.replace('_',' ')}</span>`);
+  ['on_track','at_risk','blocked'].forEach(st=>{
+    if(!S.statusFilter.has(st)) filterPills.push(`<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:#fee2e2;color:#991b1b">${t('filterNoStatus', st.replace('_',' '))}</span>`);
   });
   const fpEl=document.getElementById('brief-active-filters');
-  if(fpEl) fpEl.innerHTML=filterPills.length?filterPills.join(''):'<span style="font-size:10px;color:#bbb">wszystkie działy i statusy</span>';
+  if(fpEl) fpEl.innerHTML=filterPills.length?filterPills.join(''):`<span style="font-size:10px;color:#bbb">${t('allDeptsStatuses')}</span>`;
 
-  let html=`<div class="b-h1">Brief operacyjny</div><div class="b-sub">Stan na ${d.asof} · Portfolio Radar</div>`;
+  let html=`<div class="b-h1">${t('bH1')}</div><div class="b-sub">${t('bSub', d.asof)}</div>`;
   if(dzialy.length===0){
-    html+=`<div style="color:#bbb;font-size:13px;margin-top:20px">Brak działów — odznaczono wszystkie w filtrze.</div>`;
+    html+=`<div style="color:#bbb;font-size:13px;margin-top:20px">${t('bNoDepts')}</div>`;
     document.getElementById('brief-body').innerHTML=html; return;
   }
 
@@ -1377,28 +1878,32 @@ function renderBrief() {
     if(!dr.length) return;
     const on=dr.filter(r=>r.status==='on_track').length, at=dr.filter(r=>r.status==='at_risk').length, bl=dr.filter(r=>r.status==='blocked').length;
     const dcolor=DEPT_COLORS[dzial]||'#888';
-    const stanParts=[]; if(bl>0) stanParts.push(`<strong>${bl} zablokowane</strong>`); if(at>0) stanParts.push(`${at} zagrożone`); if(on>0) stanParts.push(`${on} on track`);
-    const stan=dr.length+' inicjatyw: '+stanParts.join(', ')+'.';
+    const stanParts=[]; if(bl>0) stanParts.push(t('bBlocked', bl)); if(at>0) stanParts.push(t('bAtRisk', at)); if(on>0) stanParts.push(t('bOnTrack', on));
+    const stan=t('bState', dr.length, stanParts.join(', '));
 
     const blokadyFiltered=blokady_przychodzace.filter(b2=>S.statusFilter.has(byid[b2.inicjatywa]?.status));
-    let blokadyTxt='Brak blokad przychodzących.';
-    if(blokadyFiltered.length>0) blokadyTxt=blokadyFiltered.map(b2=>`<strong>${b2.inicjatywa}</strong> czeka na ${b2.od} (${b2.dzial_upstream}${byid[b2.od]?' · '+byid[b2.od].staleness+'d':''})`).join('; ')+'.';
+    let blokadyTxt=t('bNoIncoming');
+    if(blokadyFiltered.length>0) blokadyTxt=blokadyFiltered.map(b2=>t('bWaitsFor', b2.inicjatywa, b2.od, b2.dzial_upstream+(byid[b2.od]?' · '+byid[b2.od].staleness+'d':''))).join('; ')+'.';
 
     const blokujeFiltered=blokuje_innych.filter(b2=>S.statusFilter.has(byid[b2.inicjatywa]?.status));
-    let blokujeTxt='Brak blokad międzydziałowych.';
-    if(blokujeFiltered.length>0) blokujeTxt=blokujeFiltered.map(b2=>`<strong>${b2.inicjatywa}</strong> blokuje ${b2.blokuje} (${b2.dzial_downstream})`).join('; ')+'.';
+    let blokujeTxt=t('bNoCross');
+    if(blokujeFiltered.length>0) blokujeTxt=blokujeFiltered.map(b2=>t('bBlocks', b2.inicjatywa, b2.blokuje, b2.dzial_downstream)).join('; ')+'.';
 
-    let niewiemyTxt='Wszystkie inicjatywy mają świeże dane.';
-    if(przeterminowane.length>0) niewiemyTxt=przeterminowane.filter(r=>S.statusFilter.has(r.status)).map(r=>`${r.id} — ${r.staleness} dni`).join('; ')+'.' || niewiemyTxt;
+    // Fix: an empty filter result used to render a bare "." — fall back to the
+    // "all fresh" line unless at least one stale initiative survives the filter.
+    const przetermFiltered=przeterminowane.filter(r=>S.statusFilter.has(r.status));
+    const niewiemyTxt=przetermFiltered.length>0
+      ? przetermFiltered.map(r=>t('bStaleEntry', r.id, r.staleness)).join('; ')+'.'
+      : t('bAllFresh');
 
-    const interwDz=d.interwencje.filter(i=>i.dzial===dzial&&i.rekomendacja&&S.statusFilter.has(i.status));
+    const interwDz=d.interwencje.filter(i=>i.dzial===dzial&&tf(i,'rekomendacja')&&S.statusFilter.has(i.status));
     const actionHTML=interwDz.length>0
       ?interwDz.map(i=>{
-        const rolaLabel=ROLE_LABEL[i.rola]||BADGE_LABEL[i.typ]||'';
+        const rolaLabel=badgeLabel(i.rola)||badgeLabel(i.typ)||'';
         const rolaClass=`badge-${i.rola||i.typ}`;
-        return `<div class="b-action"><div class="b-action-l" style="display:flex;align-items:center;gap:6px">${i.id} <span class="iv-badge ${rolaClass}" style="font-size:9px;padding:1px 6px">${rolaLabel}</span></div><div class="b-action-t">${i.rekomendacja}</div></div>`;
+        return `<div class="b-action"><div class="b-action-l" style="display:flex;align-items:center;gap:6px">${i.id} <span class="iv-badge ${rolaClass}" style="font-size:9px;padding:1px 6px">${rolaLabel}</span></div><div class="b-action-t">${tf(i,'rekomendacja')}</div></div>`;
       }).join('')
-      :`<div style="font-size:13px;color:#bbb">Brak pilnych działań dla wybranych filtrów.</div>`;
+      :`<div style="font-size:13px;color:#bbb">${t('bNoActions')}</div>`;
 
     html+=`<div class="b-dzial">
       <div class="b-dname"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${dcolor}"></span>${dzial}</div>
@@ -1407,11 +1912,11 @@ function renderBrief() {
         ${at>0?`<span class="b-pill" style="background:#fffbeb;color:#92400e">${at} at risk</span>`:''}
         ${bl>0?`<span class="b-pill" style="background:#fef2f2;color:#991b1b">${bl} blocked</span>`:''}
       </div>
-      <div class="b-sec"><div class="b-sec-t">Stan działu</div><div class="b-txt">${stan}</div></div>
-      <div class="b-sec"><div class="b-sec-t">Na co czekacie</div><div class="b-txt">${blokadyTxt}</div></div>
-      <div class="b-sec"><div class="b-sec-t">Które inne działy blokujecie</div><div class="b-txt">${blokujeTxt}</div></div>
-      <div class="b-sec"><div class="b-sec-t">Do zrobienia</div>${actionHTML}</div>
-      <div class="b-sec"><div class="b-sec-t">Czego nie wiemy</div><div class="b-txt">${niewiemyTxt}</div></div>
+      <div class="b-sec"><div class="b-sec-t">${t('bSecState')}</div><div class="b-txt">${stan}</div></div>
+      <div class="b-sec"><div class="b-sec-t">${t('bSecWaiting')}</div><div class="b-txt">${blokadyTxt}</div></div>
+      <div class="b-sec"><div class="b-sec-t">${t('bSecBlocking')}</div><div class="b-txt">${blokujeTxt}</div></div>
+      <div class="b-sec"><div class="b-sec-t">${t('bSecTodo')}</div>${actionHTML}</div>
+      <div class="b-sec"><div class="b-sec-t">${t('bSecUnknown')}</div><div class="b-txt">${niewiemyTxt}</div></div>
     </div>`;
   });
   document.getElementById('brief-body').innerHTML=html;
@@ -1420,9 +1925,8 @@ function renderBrief() {
 
 // ── NAV ──
 function gotoTab(name, sbEl) {
-  const TAB_NAMES=['mapa','tabela','dq','brief'];
-  document.querySelectorAll('.tab').forEach((t,i)=>{
-    t.classList.toggle('active', TAB_NAMES[i]===name);
+  document.querySelectorAll('.tab').forEach(t=>{
+    t.classList.toggle('active', t.dataset.tab===name);
   });
   document.querySelectorAll('.tab-pane').forEach(p=>{
     p.classList.toggle('active', p.id==='pane-'+name);
@@ -1432,6 +1936,195 @@ function gotoTab(name, sbEl) {
     sbEl.classList.add('active');
   }
   S.tab=name;
+}
+
+// ── SCHEDULE HELPERS ──────────────────────────────────────────────
+// Structured planned_start / planned_end / forecast_end are the ONLY source of
+// timeline geometry. Nothing here infers dates from progress, status, notes or
+// dependencies, and nothing here reads the machine clock — ASOF is the snapshot.
+const DAY_MS = 86400000;
+const MONTH_ABBR = {
+  en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  pl:['sty','lut','mar','kwi','maj','cze','lip','sie','wrz','paź','lis','gru']
+};
+const SCHED_FIELDS = ['planned_start','planned_end','forecast_end'];
+
+function parseSchedDate(v) {
+  if(typeof v !== 'string') return null;
+  const m = v.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(!m) return null;
+  const d = new Date(Date.UTC(+m[1], +m[2]-1, +m[3]));
+  if(isNaN(d.getTime()) || d.getUTCMonth() !== +m[2]-1 || d.getUTCDate() !== +m[3]) return null;
+  return d;
+}
+function schedOf(r) {
+  return { ps: parseSchedDate(r.planned_start), pe: parseSchedDate(r.planned_end), fe: parseSchedDate(r.forecast_end) };
+}
+// A dataset supports the timeline when at least one record carries a usable planned span.
+function hasSchedule(recs) {
+  return (recs||[]).some(r => { const s = schedOf(r); return s.ps && s.pe && s.pe >= s.ps; });
+}
+function timelineRange(recs) {
+  const ts = [];
+  (recs||[]).forEach(r => { const s = schedOf(r); [s.ps, s.pe, s.fe].forEach(d => { if(d) ts.push(d.getTime()); }); });
+  const snap = parseSchedDate((APP_DATA && APP_DATA.asof) || ASOF);
+  if(snap) ts.push(snap.getTime());
+  if(!ts.length) return null;
+  const min = new Date(Math.min(...ts)), max = new Date(Math.max(...ts));
+  // pad out to whole months so the header grid lines up with real month boundaries
+  const start = new Date(Date.UTC(min.getUTCFullYear(), min.getUTCMonth(), 1));
+  const end   = new Date(Date.UTC(max.getUTCFullYear(), max.getUTCMonth()+1, 1));
+  return { start, end, span: (end - start) / DAY_MS };
+}
+function pctOf(date, range) {
+  return ((date - range.start) / DAY_MS) / range.span * 100;
+}
+function monthCells(range) {
+  const cells = [];
+  let cur = new Date(range.start.getTime());
+  while(cur < range.end) {
+    const next = new Date(Date.UTC(cur.getUTCFullYear(), cur.getUTCMonth()+1, 1));
+    cells.push({
+      label: (MONTH_ABBR[LANG] || MONTH_ABBR.en)[cur.getUTCMonth()] + ' ' + String(cur.getUTCFullYear()).slice(2),
+      left: pctOf(cur, range),
+      width: ((Math.min(next, range.end) - cur) / DAY_MS) / range.span * 100
+    });
+    cur = next;
+  }
+  return cells;
+}
+
+// ── TIMELINE RENDER ───────────────────────────────────────────────
+// A view over the SAME APP_DATA the rest of RADAR uses: statuses, postep,
+// staleness and interwencje (rola / priority) are consumed, never recomputed.
+const TL_NAME_W = 300;
+
+function renderTimeline() {
+  const wrap = document.getElementById('tl-wrap');
+  const legend = document.getElementById('tl-legend');
+  const d = APP_DATA;
+  if(!wrap || !d) return;
+  const recs = d.inicjatywy || [];
+
+  if(!hasSchedule(recs)) {
+    if(legend) legend.innerHTML = '';
+    wrap.innerHTML = `<div class="tl-empty"><b>${t('tlUnavailableTitle')}</b>${t('tlUnavailable')}</div>`;
+    return;
+  }
+
+  if(legend) legend.innerHTML =
+    ['on_track','at_risk','blocked'].map(st =>
+      `<div class="tl-leg"><div class="tl-leg-sw" style="background:${STATUS_BG[st]};border-color:${STATUS_COLOR[st]}"></div>${st.replace('_',' ')}</div>`
+    ).join('') +
+    `<div class="tl-leg"><div class="tl-leg-fc"></div>${t('tlLegForecast')}</div>` +
+    `<div class="tl-leg"><span class="tl-stale">⚠</span>${t('tlLegStale')}</div>`;
+
+  const range = timelineRange(recs);
+  const months = monthCells(range);
+  const gridHTML = months.slice(1).map(m => `<div class="tl-gl" style="left:${m.left}%"></div>`).join('');
+
+  const vis = visibleIds();
+  const shown = recs.filter(r => vis.has(r.id));
+  const ivById = {};
+  (d.interwencje || []).forEach(i => ivById[i.id] = i);
+
+  const head = `<div class="tl-head">
+      <div class="tl-name">${t('tlColInitiative')}</div>
+      <div class="tl-months">${months.map(m => `<div class="tl-mo" style="width:${m.width}%">${m.label}</div>`).join('')}</div>
+      ${snapshotLabelHTML(range)}
+    </div>`;
+
+  let body = '';
+  const dzialy = (d.dzialy || []).filter(dz => shown.some(r => r.dzial === dz));
+  if(!dzialy.length) {
+    body = `<div class="tl-empty">${t('tlNoMatch')}</div>`;
+  } else {
+    dzialy.forEach(dzial => {
+      const dr = shown.filter(r => r.dzial === dzial);
+      const c = {
+        blocked: dr.filter(r => r.status === 'blocked').length,
+        at_risk: dr.filter(r => r.status === 'at_risk').length,
+        on_track: dr.filter(r => r.status === 'on_track').length
+      };
+      const counts = [
+        c.blocked ? `<span style="color:#d93025">${c.blocked} ⛔</span>` : '',
+        c.at_risk ? `<span style="color:#b45309">${c.at_risk} ⚠</span>` : '',
+        c.on_track ? `<span style="color:#166534">${c.on_track} ✓</span>` : ''
+      ].filter(Boolean).join('');
+      body += `<div class="tl-grp">
+        <div class="tl-name">
+          <div class="tl-grp-dot" style="background:${DEPT_COLORS[dzial] || '#bbb'}"></div>
+          <span class="tl-nm" style="font-weight:600;color:${DEPT_COLORS[dzial] || '#555'}">${dzial}</span>
+          <span class="tl-grp-counts">${counts}</span>
+        </div>
+        <div class="tl-track">${gridHTML}</div>
+      </div>`;
+      dr.forEach(r => { body += timelineRowHTML(r, range, gridHTML, ivById[r.id]); });
+    });
+  }
+
+  wrap.innerHTML = `<div class="tl-inner">${head}${body}${snapshotLineHTML(range)}</div>`;
+  wrap.querySelectorAll('.tl-row').forEach(el => {
+    el.addEventListener('click', () => openPanel(el.dataset.id));
+  });
+}
+
+function snapPct(range) {
+  const snap = parseSchedDate((APP_DATA && APP_DATA.asof) || ASOF);
+  return snap ? pctOf(snap, range) : null;
+}
+function snapLeftCSS(range) {
+  const p = snapPct(range);
+  return p === null ? null : `calc(${TL_NAME_W}px + (100% - ${TL_NAME_W}px) * ${p / 100})`;
+}
+function snapshotLineHTML(range) {
+  const left = snapLeftCSS(range);
+  return left ? `<div class="tl-snap" style="left:${left}"></div>` : '';
+}
+function snapshotLabelHTML(range) {
+  const left = snapLeftCSS(range);
+  const snap = parseSchedDate((APP_DATA && APP_DATA.asof) || ASOF);
+  if(!left || !snap) return '';
+  return `<div class="tl-snap-lbl" style="left:${left}">${t('tlSnapshot', snap.getUTCDate(), (MONTH_ABBR[LANG] || MONTH_ABBR.en)[snap.getUTCMonth()], snap.getUTCMonth() + 1)}</div>`;
+}
+
+function timelineRowHTML(r, range, gridHTML, iv) {
+  const { ps, pe, fe } = schedOf(r);
+  const color = STATUS_COLOR[r.status] || '#ddd';
+  const bg = STATUS_BG[r.status] || '#fff';
+  const tc = STATUS_TEXT[r.status] || '#333';
+
+  let bars = '';
+  if(ps && pe && pe >= ps) {
+    const left = pctOf(ps, range), right = pctOf(pe, range);
+    bars += `<div class="tl-bar" style="left:${left}%;width:${Math.max(right - left, 0.6)}%;background:${bg};border-color:${color}">
+      <div class="tl-fill" style="width:${r.postep}%;background:${color}"></div>
+      <span class="tl-pct" style="color:${tc}">${r.postep}%</span>
+    </div>`;
+    if(fe && fe > pe) {
+      const fRight = pctOf(fe, range);
+      bars += `<div class="tl-fc" title="${t('tlForecastTip', r.forecast_end)}" style="left:${right}%;width:${Math.max(fRight - right, 0.4)}%;border-color:${color};background:repeating-linear-gradient(45deg, ${color}33 0 3px, transparent 3px 6px)"></div>`;
+    }
+  } else {
+    bars += `<div style="position:absolute;left:6px;top:9px;font-size:10px;color:#ccc">${t('tlRowNoDates')}</div>`;
+  }
+
+  // Existing RADAR classifications, consumed as-is from the engine output.
+  const rola = iv && iv.rola;
+  const badge = rola
+    ? `<span class="tl-badge badge-${rola}">${iv.priority ? iv.priority.toUpperCase() + ' · ' : ''}${ROLE_LABEL[rola]}</span>`
+    : '';
+  const stale = r.staleness > 14
+    ? `<span class="tl-stale" title="${t('tlStaleTip', r.staleness)}">⚠</span>` : '';
+
+  return `<div class="tl-row" data-id="${r.id}">
+    <div class="tl-name">
+      <span class="tl-id">${r.id}</span>
+      <span class="tl-nm" title="${r.nazwa_inicjatywy}">${r.nazwa_inicjatywy}</span>
+      <span class="tl-meta">${stale}${badge}</span>
+    </div>
+    <div class="tl-track">${gridHTML}${bars}</div>
+  </div>`;
 }
 
 // ── DATA QUALITY ──
@@ -1446,89 +2139,165 @@ function renderDQ(d) {
   function renderIssue(item) {
     return `<div class="dq-item ${item.severity}">
       <span class="dq-tag ${item.severity}">${
-        item.severity==='confirmed'?'POTWIERDZONE':item.severity==='likely'?'PRAWDOPODOBNE':'WNIOSKOWANE'
+        t(item.severity==='confirmed'?'dqTagConfirmed':item.severity==='likely'?'dqTagLikely':'dqTagInferred')
       }</span>
       <div>
         <strong>${item.title}</strong><br>
         <span style="color:#888">${item.desc}</span>
-        ${item.ai?`<div class="dq-ai-flag"><div class="dq-ai-label">Sygnał z notatki statusu</div>${item.ai}</div>`:''}
+        ${item.ai?`<div class="dq-ai-flag"><div class="dq-ai-label">${t('dqAiLabel')}</div>${item.ai}</div>`:''}
       </div>
     </div>`;
   }
 
-  let html = `<div class="dq-h1">Jakość danych</div>
-    <div class="dq-sub">Stan na ${d.asof} · Wykryto ${issues.length} kwestii wymagających uwagi</div>`;
+  let html = `<div class="dq-h1">${t('dqH1')}</div>
+    <div class="dq-sub">${t('dqSub', d.asof, issues.length)}</div>`;
 
   if(confirmed.length) {
     html += `<div class="dq-section">
-      <div class="dq-sec-title"><span style="color:#d93025">●</span> Potwierdzone problemy strukturalne (${confirmed.length})</div>
+      <div class="dq-sec-title"><span style="color:#d93025">●</span> ${t('dqSecConfirmed', confirmed.length)}</div>
       ${confirmed.map(renderIssue).join('')}
     </div>`;
   }
   if(likely.length) {
     html += `<div class="dq-section">
-      <div class="dq-sec-title"><span style="color:#b45309">●</span> Prawdopodobne problemy (${likely.length})</div>
+      <div class="dq-sec-title"><span style="color:#b45309">●</span> ${t('dqSecLikely', likely.length)}</div>
       ${likely.map(renderIssue).join('')}
     </div>`;
   }
   if(inferred.length) {
     html += `<div class="dq-section">
-      <div class="dq-sec-title"><span style="color:#6366f1">●</span> Wnioskowane / do weryfikacji (${inferred.length})</div>
+      <div class="dq-sec-title"><span style="color:#6366f1">●</span> ${t('dqSecInferred', inferred.length)}</div>
       ${inferred.map(renderIssue).join('')}
     </div>`;
   }
 
   html += `<div class="dq-section" style="background:#fafaf8;border-radius:8px;padding:14px;border:1px solid #e8e8e6;margin-top:8px">
-    <div class="dq-sec-title" style="margin-bottom:6px">ℹ️ Założenia przyjęte w analizie</div>
+    <div class="dq-sec-title" style="margin-bottom:6px">${t('dqAssumptions')}</div>
     <div style="font-size:12px;color:#666;line-height:1.8">
-      <div>• <strong>Świeżość danych</strong> oznacza „dni od ostatniej aktualizacji", nie „dni w aktualnym statusie"</div>
-      <div>• <strong>Data analizy</strong> przyjęta jako zamrożony snapshot: ${d.asof} (nie pochodzi z pola w CSV)</div>
-      <div>• <strong>Terminy i kamienie milowe</strong> wyekstrahowane z notatek są sygnałem, nie polem strukturalnym</div>
-      <div>• <strong>Zależności</strong> oparte wyłącznie na polu <code>zalezy_od</code>; możliwe nieformalne zależności w notatkach</div>
+      <div>• ${t('dqA1')}</div>
+      <div>• ${t('dqA2', d.asof)}</div>
+      <div>• ${t('dqA3')}</div>
+      <div>• ${t('dqA4')}</div>
     </div>
   </div>`;
 
   document.getElementById('dq-body').innerHTML = html;
 }
 
+const DQ_TEXT = {
+  pl: {
+    schedNoneT:'Brak ustrukturyzowanych dat harmonogramu',
+    schedNoneD:'Dataset nie zawiera pól planned_start / planned_end / forecast_end. Oś czasu jest niedostępna — dat nie da się rzetelnie wyprowadzić z postępu, statusu ani z notatek.',
+    schedMissingT: (f, n) => `Brak wartości w polu ${f} (${n} ${plPL(n,'inicjatywa','inicjatywy','inicjatyw')})`,
+    schedMissingD: ids => `Rekordy bez tej daty: ${ids}. Pasek osi czasu nie zostanie narysowany; wartość nie jest uzupełniana automatycznie.`,
+    schedInvalidT: n => `Nieprawidłowy format daty (${n} ${plPL(n,'wartość','wartości','wartości')})`,
+    schedInvalidD: list => `Oczekiwany format to YYYY-MM-DD. Problematyczne wartości: ${list}.`,
+    schedOrderT: n => `planned_start po planned_end (${n} ${plPL(n,'inicjatywa','inicjatywy','inicjatyw')})`,
+    schedOrderD: ids => `Odwrócony zakres planu: ${ids}. Daty nie są korygowane automatycznie — wymagają poprawki w źródle.`,
+    schedFcT: n => `forecast_end przed planned_start (${n} ${plPL(n,'inicjatywa','inicjatywy','inicjatyw')})`,
+    schedFcD: ids => `Prognoza kończy się przed startem planu: ${ids}. Wymaga weryfikacji w źródle danych.`,
+    noHistoryT:'Brak historii statusów',
+    noHistoryD:'Dostępny jest tylko aktualny status i data ostatniej aktualizacji. Niemożliwe jest wyliczenie: „ile dni zablokowane”, trendu, prędkości historycznej. Staleness = dni od ostatniej aktualizacji, nie dni w bieżącym statusie.',
+    ownerT:'INIT-15: brak właściciela technicznego (raport z notatki)',
+    ownerDual:'Dodatkowo: właściciel biznesowy i sponsor wskazują tę samą osobę (Dorota Michalska) — możliwa niejasność governance; wymaga weryfikacji.',
+    ownerD: extra => `Notatka statusu wprost informuje o braku właściciela technicznego od ~3 tygodni. ${extra} Pole wlasciciel zawiera właściciela biznesowego; model danych nie przewiduje osobnego pola technical_owner.`,
+    ownerAI:'Sygnał z notatki: „Brak właściciela technicznego od 3 tygodni” — klasyfikacja DIRECT ACTION: assign technical owner. Nie modyfikuje struktury danych automatycznie.',
+    deadlinesT: n => `Terminy/kamienie milowe tylko w notatkach (${n} ${plPL(n,'inicjatywa','inicjatywy','inicjatyw')})`,
+    deadlinesD: ids => `Inicjatywy z datami w notatkach: ${ids}. To sygnały kontekstowe — nie są uzgadniane z polami planned_end / forecast_end, więc notatka może być sprzeczna z harmonogramem bez wykrycia przez aplikację.`,
+    init16T:'INIT-16: potencjalna brakująca zależność/akceptacja',
+    init16D:'Pole zalezy_od wskazuje tylko na INIT-03. Notatka statusu zawiera: „do zamknięcia potrzebujemy jeszcze akceptacji Pricing”. Akceptacja działu Pricing nie jest reprezentowana strukturalnie.',
+    init16AI:'Potencjalna brakująca zależność wykryta z notatki statusu. Wymaga weryfikacji przez właściciela inicjatywy przed dodaniem krawędzi do grafu.',
+    timingT:'INIT-17 → INIT-18: dwuznaczność zależności czasowej',
+    timingD:'INIT-18 potrzebuje „doświadczeń pilotażu włoskiego” z INIT-17. Pilotaż startuje 1 września. Niejasne: czy INIT-18 potrzebuje startu pilotażu czy jego wyników? Możliwe ukryte opóźnienie o kilka tygodni.',
+    timingAI:'Zależność INIT-18 od INIT-17 może wymagać wyników pilotażu, nie tylko jego uruchomienia. Wymaga potwierdzenia z właścicielem INIT-18.'
+  },
+  en: {
+    schedNoneT:'No structured schedule dates',
+    schedNoneD:'The dataset has no planned_start / planned_end / forecast_end fields. The timeline is unavailable — dates cannot be derived honestly from progress, status or notes.',
+    schedMissingT: (f, n) => `Missing ${f} values (${n} initiative${sfx(n)})`,
+    schedMissingD: ids => `Records without this date: ${ids}. No timeline bar is drawn for them; the value is never filled in automatically.`,
+    schedInvalidT: n => `Invalid date format (${n} value${sfx(n)})`,
+    schedInvalidD: list => `Expected format is YYYY-MM-DD. Offending values: ${list}.`,
+    schedOrderT: n => `planned_start after planned_end (${n} initiative${sfx(n)})`,
+    schedOrderD: ids => `Inverted planned range: ${ids}. Dates are not corrected automatically — they need fixing at the source.`,
+    schedFcT: n => `forecast_end before planned_start (${n} initiative${sfx(n)})`,
+    schedFcD: ids => `The forecast ends before the plan starts: ${ids}. Needs verification in the source data.`,
+    noHistoryT:'No status history',
+    noHistoryD:'Only the current status and the last-update date are available. It is impossible to derive “how many days blocked”, a trend, or historical velocity. Staleness = days since the last update, not days in the current status.',
+    ownerT:'INIT-15: no technical owner (reported in the status note)',
+    ownerDual:'On top of that, the business owner and the sponsor are the same person (Dorota Michalska) — possible governance ambiguity; needs verification.',
+    ownerD: extra => `The status note states outright that there has been no technical owner for ~3 weeks. ${extra} The wlasciciel field holds the business owner; the data model has no separate technical_owner field.`,
+    ownerAI:'Signal from the note: “No technical owner for 3 weeks” — classified as DIRECT ACTION: assign a technical owner. It does not modify the data structure automatically.',
+    deadlinesT: n => `Deadlines/milestones live only in the notes (${n} initiative${sfx(n)})`,
+    deadlinesD: ids => `Initiatives with dates in their notes: ${ids}. These are contextual signals only — they are never reconciled against the structured planned_end / forecast_end fields, so a note can contradict the schedule without the app noticing.`,
+    init16T:'INIT-16: potential missing dependency/approval',
+    init16D:'The zalezy_od field points only to INIT-03. The status note says the team still needs Pricing sign-off to close. A Pricing approval is not represented structurally.',
+    init16AI:'A potential missing dependency detected in the status note. It needs verification by the initiative owner before an edge is added to the graph.',
+    timingT:'INIT-17 → INIT-18: timing dependency ambiguity',
+    timingD:'INIT-18 needs the “lessons from the Italian pilot” from INIT-17. The pilot starts on 1 September. Unclear: does INIT-18 need the pilot to start, or its results? A hidden delay of several weeks is possible.',
+    timingAI:'The INIT-18 dependency on INIT-17 may require the pilot results, not just its launch. Needs confirmation from the INIT-18 owner.'
+  }
+};
+
+// Deterministic schedule validation — reports, never repairs.
+function pushScheduleIssues(issues, recs, L) {
+  const declared = recs.some(r => SCHED_FIELDS.some(f => typeof r[f] === 'string'));
+  if(!declared) {
+    issues.push({ severity:'confirmed', title:L.schedNoneT, desc:L.schedNoneD });
+    return;
+  }
+  const missing = {planned_start:[], planned_end:[], forecast_end:[]};
+  const invalid = [], badOrder = [], badForecast = [];
+  recs.forEach(r => {
+    SCHED_FIELDS.forEach(f => {
+      const raw = (r[f] == null ? '' : String(r[f])).trim();
+      if(!raw) missing[f].push(r.id);
+      else if(!parseSchedDate(raw)) invalid.push(`${r.id} ${f}="${raw}"`);
+    });
+    const {ps, pe, fe} = schedOf(r);
+    if(ps && pe && ps > pe) badOrder.push(r.id);
+    if(ps && fe && fe < ps) badForecast.push(r.id);
+  });
+  SCHED_FIELDS.forEach(f => {
+    if(missing[f].length) issues.push({
+      severity:'confirmed', title:L.schedMissingT(f, missing[f].length), desc:L.schedMissingD(missing[f].join(', '))
+    });
+  });
+  if(invalid.length) issues.push({ severity:'confirmed', title:L.schedInvalidT(invalid.length), desc:L.schedInvalidD(invalid.join(', ')) });
+  if(badOrder.length) issues.push({ severity:'confirmed', title:L.schedOrderT(badOrder.length), desc:L.schedOrderD(badOrder.join(', ')) });
+  if(badForecast.length) issues.push({ severity:'confirmed', title:L.schedFcT(badForecast.length), desc:L.schedFcD(badForecast.join(', ')) });
+}
+
 function buildDQIssues(d) {
   const issues = [];
   const recs = d.inicjatywy;
-  const dzialy = d.dzialy || [];
+  const L = DQ_TEXT[LANG] || DQ_TEXT.en;
 
-  // 1. CONFIRMED: Brak dat startu / czas trwania
-  issues.push({
-    severity: 'confirmed',
-    title: 'Brak dat startu i czasu trwania inicjatyw',
-    desc: 'Dataset nie zawiera pól start_date ani planned_duration. Oś czasu nie może być rzetelnie wyliczona — usunięto ją z prototypu. Postęp procentowy nie zastępuje harmonogramu.'
-  });
+  // 1. CONFIRMED: deterministic validation of the structured schedule fields
+  pushScheduleIssues(issues, recs, L);
 
-  // 2. CONFIRMED: Brak historii statusów
-  issues.push({
-    severity: 'confirmed',
-    title: 'Brak historii statusów',
-    desc: 'Dostępny jest tylko aktualny status i data ostatniej aktualizacji. Niemożliwe jest wyliczenie: „ile dni zablokowane", trendu, prędkości historycznej. Staleness = dni od ostatniej aktualizacji, nie dni w bieżącym statusie.'
-  });
+  // 2. CONFIRMED: no status history
+  issues.push({ severity:'confirmed', title:L.noHistoryT, desc:L.noHistoryD });
 
-  // 3. CONFIRMED: INIT-15 brak właściciela technicznego (tylko jeśli notatka to potwierdza)
+  // 3. CONFIRMED: INIT-15 missing technical owner (only if the note says so)
   const init15 = recs.find(r=>r.id==='INIT-15');
   if(init15) {
     const note15 = (init15.notatka_statusu||'').toLowerCase();
     const notaWskazujeBrakOwnera = note15.includes('brak właściciela') || note15.includes('brak ownera') ||
       note15.includes('no owner') || (note15.includes('brak') && note15.includes('techniczn'));
     if(notaWskazujeBrakOwnera) {
-      const ownerEqualssSponsor = init15.wlasciciel && init15.sponsor &&
+      const ownerEqualsSponsor = init15.wlasciciel && init15.sponsor &&
         init15.sponsor.toLowerCase().includes(init15.wlasciciel.toLowerCase());
       issues.push({
         severity: 'confirmed',
-        title: 'INIT-15: brak właściciela technicznego (raport z notatki)',
-        desc: `Notatka statusu wprost informuje o braku właściciela technicznego od ~3 tygodni. ${ownerEqualssSponsor ? 'Dodatkowo: właściciel biznesowy i sponsor wskazują tę samą osobę (Dorota Michalska) — możliwa niejasność governance; wymaga weryfikacji.' : ''} Pole wlasciciel zawiera właściciela biznesowego; model danych nie przewiduje osobnego pola technical_owner.`,
-        ai: 'Sygnał z notatki: „Brak właściciela technicznego od 3 tygodni" — klasyfikacja DIRECT ACTION: assign technical owner. Nie modyfikuje struktury danych automatycznie.'
+        title: L.ownerT,
+        desc: L.ownerD(ownerEqualsSponsor ? L.ownerDual : ''),
+        ai: L.ownerAI
       });
     }
   }
 
-  // 4. LIKELY: Terminy tylko w notatkach
+  // 4. LIKELY: deadlines live only in the notes
   const withDeadlines = recs.filter(r => {
     const n = (r.notatka_statusu||'').toLowerCase();
     return n.match(/\d{1,2}\s*(września|sierpnia|października|listopada|marca|maja|czerwca|lipca|stycznia|lutego|kwietnia)/i)
@@ -1537,43 +2306,31 @@ function buildDQIssues(d) {
   if(withDeadlines.length) {
     issues.push({
       severity: 'likely',
-      title: `Terminy/kamienie milowe tylko w notatkach (${withDeadlines.length} inicjatyw)`,
-      desc: `Inicjatywy z datami w notatkach: ${withDeadlines.map(r=>r.id).join(', ')}. Brak spójnego pola deadline — ryzyko terminowe nie może być automatycznie wyliczone dla całego portfolio.`
+      title: L.deadlinesT(withDeadlines.length),
+      desc: L.deadlinesD(withDeadlines.map(r=>r.id).join(', '))
     });
   }
 
-  // 5. INFERRED: INIT-16 potencjalna brakująca zależność (AI flag)
+  // 5. INFERRED: INIT-16 potential missing dependency / approval
   const init16 = recs.find(r=>r.id==='INIT-16');
   if(init16) {
-    issues.push({
-      severity: 'inferred',
-      title: 'INIT-16: potencjalna brakująca zależność/akceptacja',
-      desc: `Pole zalezy_od wskazuje tylko na INIT-03. Notatka statusu zawiera: „do zamknięcia potrzebujemy jeszcze akceptacji Pricing". Akceptacja działu Pricing nie jest reprezentowana strukturalnie.`,
-      ai: 'Potencjalna brakująca zależność wykryta z notatki statusu. Wymaga weryfikacji przez właściciela inicjatywy przed dodaniem krawędzi do grafu.'
-    });
+    issues.push({ severity:'inferred', title:L.init16T, desc:L.init16D, ai:L.init16AI });
   }
 
-  // 6. INFERRED: INIT-17/18 dwuznaczność zależności czasowej (tylko jeśli oba rekordy i realna zależność istnieją)
+  // 6. INFERRED: INIT-17 -> INIT-18 timing ambiguity
   const init17 = recs.find(r=>r.id==='INIT-17');
   const init18 = recs.find(r=>r.id==='INIT-18');
   if(init17 && init18 && (init18.dep||[]).includes('INIT-17')) {
     const note18 = (init18.notatka_statusu||'').toLowerCase();
     const notaWskazujeNaPilotaz = note18.includes('pilotaż') || note18.includes('pilotaz') || note18.includes('doświadczen');
     if(notaWskazujeNaPilotaz) {
-      issues.push({
-        severity: 'inferred',
-        title: 'INIT-17 → INIT-18: dwuznaczność zależności czasowej',
-        desc: 'INIT-18 potrzebuje „doświadczeń pilotażu włoskiego" z INIT-17. Pilotaż startuje 1 września. Niejasne: czy INIT-18 potrzebuje startu pilotażu czy jego wyników? Możliwe ukryte opóźnienie o kilka tygodni.',
-        ai: 'Zależność INIT-18 od INIT-17 może wymagać wyników pilotażu, nie tylko jego uruchomienia. Wymaga potwierdzenia z właścicielem INIT-18.'
-      });
+      issues.push({ severity:'inferred', title:L.timingT, desc:L.timingD, ai:L.timingAI });
     }
   }
 
   return issues;
 }
 
-
-// switchDataset removed in v7 — Testowy dataset usunięty
 
 // ── CSV UPLOAD ──
 function handleCSV(e) {
@@ -1583,14 +2340,12 @@ function handleCSV(e) {
     try {
       const text=ev.target.result;
       const parsed=parseCSV(text);
-      if(parsed.length<2){ showToast('Błąd: za mało wierszy w CSV'); return; }
+      if(parsed.length<2){ showToast(t('csvTooFew')); return; }
       const data=buildDataFromRecs(parsed);
       document.getElementById('csv-loaded').style.display='block';
-      const dsDefault=document.getElementById('ds-default');
-      if(dsDefault) dsDefault.classList.remove('active');
       boot(data);
-      showToast('Wczytano: '+file.name+' ('+parsed.length+' inicjatyw)');
-    } catch(err){ showToast('Błąd parsowania CSV: '+err.message); }
+      showToast(t('csvLoadedToast', file.name, parsed.length));
+    } catch(err){ showToast(t('csvParseErr', err.message)); }
   };
   reader.readAsText(file,'utf-8');
 }
@@ -1620,9 +2375,8 @@ function parseCSV(text) {
 
 function buildDataFromRecs(recs) {
   // v7.2 pipeline — ROOT_CAUSE / DIRECT_ACTION / IMPACT / MONITOR
-  // Snapshot date: hardcoded 2026-08-25 — zapewnia reprodukowalność niezależnie od daty pliku
-  const ASOF = '2026-08-25';
-  const asofDate=new Date(ASOF);
+  // Snapshot date comes from the single global ASOF constant (reproducible, file-independent).
+  const asofDate=parseSchedDate(ASOF);
   recs.forEach(r=>{
     r.dep=(r.zalezy_od||'').split(',').map(x=>x.trim()).filter(Boolean);
     r.postep=parseInt(r.postep_procent)||0;
@@ -1728,46 +2482,76 @@ function buildDataFromRecs(recs) {
     return 'p2';
   }
 
+  // Both generators return {pl, en} (or null) so the language toggle keeps
+  // working after a CSV reload. Classification still reads the PL notes.
   function buildRekomendacja(r, rola, blockerType) {
     if(rola==='DIRECT_ACTION') {
-      if(blockerType==='BRAK_ZASOBU') return `Przydziel właściciela technicznego do ${r.id}. Inicjatywa nie ruszy bez tej roli — nawet po odblokowaniu upstream.`;
+      if(blockerType==='BRAK_ZASOBU') return {
+        pl:`Przydziel właściciela technicznego do ${r.id}. Inicjatywa nie ruszy bez tej roli — nawet po odblokowaniu upstream.`,
+        en:`Assign a technical owner to ${r.id}. The initiative will not move without that role — even once upstream is unblocked.`};
       if(blockerType==='BRAK_KOMUNIKACJI') {
-        if(r.dep&&r.dep.length>0) return `Uzgodnij data contract między ${r.dep.join('/')} a ${r.id}: zmiana struktury danych nie została zakomunikowana. Wymagana synchronizacja schematu i protokół powiadamiania przy przyszłych zmianach.`;
-        return `Uzgodnij i zakomunikuj zmiany struktury danych dla ${r.id}: brak powiadomienia zależnych zespołów.`;
+        if(r.dep&&r.dep.length>0) return {
+          pl:`Uzgodnij data contract między ${r.dep.join('/')} a ${r.id}: zmiana struktury danych nie została zakomunikowana. Wymagana synchronizacja schematu i protokół powiadamiania przy przyszłych zmianach.`,
+          en:`Agree a data contract between ${r.dep.join('/')} and ${r.id}: the data-structure change was never communicated. Requires a schema sync and a notification protocol for future changes.`};
+        return {
+          pl:`Uzgodnij i zakomunikuj zmiany struktury danych dla ${r.id}: brak powiadomienia zależnych zespołów.`,
+          en:`Agree and communicate the data-structure changes for ${r.id}: dependent teams were not notified.`};
       }
-      if(blockerType==='DECYZJA_ZARZADU') return `Wpisz decyzję dotyczącą ${r.id} na agenda zarządu.`;
-      // at_risk + dep + długa cisza: niejasność timingowa (np. INIT-18)
-      if(r.dep&&r.dep.length>0) return `Zaktualizuj plan ${r.id} i potwierdź z właścicielami ${r.dep.join(', ')}, kiedy będą dostępne dane potrzebne do dalszych prac. Sprawdź, czy ${r.id} potrzebuje startu upstream czy dopiero ich wyników.`;
-      return `Zaktualizuj status ${r.id} i wyjaśnij blokadę z właścicielem ${r.wlasciciel}.`;
+      if(blockerType==='DECYZJA_ZARZADU') return {
+        pl:`Wpisz decyzję dotyczącą ${r.id} na agenda zarządu.`,
+        en:`Put the decision on ${r.id} on the board agenda.`};
+      // at_risk + dep + long silence: timing ambiguity (e.g. INIT-18)
+      if(r.dep&&r.dep.length>0) return {
+        pl:`Zaktualizuj plan ${r.id} i potwierdź z właścicielami ${r.dep.join(', ')}, kiedy będą dostępne dane potrzebne do dalszych prac. Sprawdź, czy ${r.id} potrzebuje startu upstream czy dopiero ich wyników.`,
+        en:`Update the ${r.id} plan and confirm with the owners of ${r.dep.join(', ')} when the data needed to continue will be available. Check whether ${r.id} needs upstream to start or upstream results.`};
+      return {
+        pl:`Zaktualizuj status ${r.id} i wyjaśnij blokadę z właścicielem ${r.wlasciciel}.`,
+        en:`Update the status of ${r.id} and clear the blocker with its owner, ${r.wlasciciel}.`};
     }
     if(rola==='ROOT_CAUSE') {
       const affected=r.bad_downstream.join(', ');
-      if(blockerType==='DECYZJA_ZARZADU') return `Wpisz decyzję o ${r.id} na agenda zarządu — odblokuje: ${affected}.`;
-      // Deadline w notatkach downstream (INIT-03 → INIT-04 ma "1 września")
+      if(blockerType==='DECYZJA_ZARZADU') return {
+        pl:`Wpisz decyzję o ${r.id} na agenda zarządu — odblokuje: ${affected}.`,
+        en:`Put the ${r.id} decision on the board agenda — it unblocks: ${affected}.`};
+      // Deadline in a downstream note (INIT-03 → INIT-04 carries "1 września")
       const dsDeadline=r.bad_downstream.map(id=>byid[id]).filter(Boolean)
         .map(ds=>{const m=(ds.notatka_statusu||'').match(/\d{1,2}\s*(września|sierpnia|października|listopada|marca)/i);return m?{id:ds.id,date:m[0]}:null;}).filter(Boolean)[0];
-      if(dsDeadline) return `Sfinalizuj ${r.id} i potwierdź gotowość dla ${dsDeadline.id} — start kampanii ${dsDeadline.date} jest zagrożony.`;
-      // Go-live we własnej notatce (INIT-07)
+      if(dsDeadline) return {
+        pl:`Sfinalizuj ${r.id} i potwierdź gotowość dla ${dsDeadline.id} — start kampanii ${dsDeadline.date} jest zagrożony.`,
+        en:`Finalise ${r.id} and confirm readiness for ${dsDeadline.id} — the campaign start (${dsDeadline.date}) is at risk.`};
+      // Go-live in its own note (INIT-07)
       const ownNote=(r.notatka_statusu||'').toLowerCase();
-      if(ownNote.includes('go-live')||ownNote.includes('go live')) return `Potwierdź gotowość ${r.id} do go-live — ${affected} zależy od jego wyniku.`;
-      return `Potwierdź i zakomunikuj datę finalizacji ${r.id} — odblokuje: ${affected}.`;
+      if(ownNote.includes('go-live')||ownNote.includes('go live')) return {
+        pl:`Potwierdź gotowość ${r.id} do go-live — ${affected} zależy od jego wyniku.`,
+        en:`Confirm ${r.id} readiness for go-live — ${affected} depend${r.bad_downstream.length===1?'s':''} on its outcome.`};
+      return {
+        pl:`Potwierdź i zakomunikuj datę finalizacji ${r.id} — odblokuje: ${affected}.`,
+        en:`Confirm and communicate the completion date for ${r.id} — it unblocks: ${affected}.`};
     }
-    return null; // IMPACT / MONITOR bez rekomendacji
+    return null; // IMPACT / MONITOR carry no recommendation
   }
 
   function buildDlaczego(r, rola) {
     if(rola==='IMPACT') {
       const upstream=r.dep.join(', ');
-      return `Główna interwencja należy do upstream: ${upstream}. Po odblokowaniu upstream ta inicjatywa może ruszyć.`;
+      return {
+        pl:`Główna interwencja należy do upstream: ${upstream}. Po odblokowaniu upstream ta inicjatywa może ruszyć.`,
+        en:`The primary intervention sits upstream: ${upstream}. Once upstream is unblocked this initiative can move.`};
     }
     if(rola==='ROOT_CAUSE'&&r.bad_downstream.length) {
-      return `${r.id} jest ${r.status==='on_track'?'on_track':'zagrożona'}, ale jej wynik blokuje ${r.bad_downstream.length} downstream. Interwencja tutaj ma największą dźwignię portfelową.`;
+      return {
+        pl:`${r.id} jest ${r.status==='on_track'?'on_track':'zagrożona'}, ale jej wynik blokuje ${r.bad_downstream.length} downstream. Interwencja tutaj ma największą dźwignię portfelową.`,
+        en:`${r.id} is ${r.status==='on_track'?'on_track':'at risk'}, but its outcome blocks ${r.bad_downstream.length} downstream initiative${r.bad_downstream.length===1?'':'s'}. Intervening here has the highest portfolio leverage.`};
     }
     if(rola==='DIRECT_ACTION'&&r.dep&&r.dep.length>0) {
-      return `Ostatnia aktualizacja ${r.staleness} dni temu. Czeka na: ${r.dep.join(', ')} — niejasne, czy potrzeba startu czy wyników upstream.`;
+      return {
+        pl:`Ostatnia aktualizacja ${r.staleness} dni temu. Czeka na: ${r.dep.join(', ')} — niejasne, czy potrzeba startu czy wyników upstream.`,
+        en:`Last update ${r.staleness} days ago. Waiting on: ${r.dep.join(', ')} — unclear whether it needs upstream to start or upstream results.`};
     }
     if(rola==='DIRECT_ACTION') {
-      return `Ostatnia aktualizacja ${r.staleness} dni temu. Wymaga lokalnej decyzji niezależnie od statusu upstream.`;
+      return {
+        pl:`Ostatnia aktualizacja ${r.staleness} dni temu. Wymaga lokalnej decyzji niezależnie od statusu upstream.`,
+        en:`Last update ${r.staleness} days ago. Needs a local decision regardless of upstream status.`};
     }
     return null;
   }
@@ -1802,15 +2586,18 @@ function buildDataFromRecs(recs) {
       const roleOrdinal = {DIRECT_ACTION:3, ROOT_CAUSE:2, IMPACT:1, MONITOR:0}[rola] || 0;
       score = roleOrdinal*10000 + r.bad_downstream.length*100 + r.staleness;
     }
-    const rekomendacja=buildRekomendacja(r,rola,blockerType);
-    const dlaczego=buildDlaczego(r,rola);
+    const rek=buildRekomendacja(r,rola,blockerType);
+    const dlacz=buildDlaczego(r,rola);
 
     interwencje.push({
       id:r.id, rola, nazwa:r.nazwa_inicjatywy, dzial:r.dzial, status:r.status,
       postep:r.postep, staleness:r.staleness, downstream:r.downstream,
       bad_downstream:r.bad_downstream, typ:blockerType||'OCZEKIWANIE_NA_DANE',
+      // uzasadnienie is a raw excerpt of the source note — it stays in the data's own language
       uzasadnienie:(r.notatka_statusu||'').slice(0,100),
-      rekomendacja, dlaczego, score, priority
+      rekomendacja: rek?rek.pl:null, rekomendacja_en: rek?rek.en:null,
+      dlaczego: dlacz?dlacz.pl:null, dlaczego_en: dlacz?dlacz.en:null,
+      score, priority
     });
   });
   interwencje.sort((a,b)=>b.score-a.score);
@@ -1830,9 +2617,17 @@ function buildDataFromRecs(recs) {
 
   const alerty=[];
   recs.forEach(r=>{
-    if(r.staleness>14&&r.status!=='on_track') alerty.push({id:r.id,msg:`${r.id} — brak aktualizacji od ${r.staleness} dni (${r.status})`,dni:r.staleness});
+    if(r.staleness>14&&r.status!=='on_track') alerty.push({
+      id:r.id,
+      msg:`${r.id} — brak aktualizacji od ${r.staleness} dni (${r.status})`,
+      msg_en:`${r.id} — no update for ${r.staleness} days (${r.status})`,
+      dni:r.staleness});
     const note=(r.notatka_statusu||'').toLowerCase();
-    if(note.includes('brak')&&(note.includes('właściciel')||note.includes('decyzji'))) alerty.push({id:r.id,msg:`${r.id} — sygnał: brak właściciela / decyzji`,dni:r.staleness});
+    if(note.includes('brak')&&(note.includes('właściciel')||note.includes('decyzji'))) alerty.push({
+      id:r.id,
+      msg:`${r.id} — sygnał: brak właściciela / decyzji`,
+      msg_en:`${r.id} — signal: missing owner / decision`,
+      dni:r.staleness});
   });
   alerty.sort((a,b)=>b.dni-a.dni);
 
@@ -1846,40 +2641,42 @@ function exportMD() {
   d.inicjatywy.forEach(r=>byid[r.id]=r);
   const dzialy=d.dzialy.filter(dz=>S.deptFilter.size===0||!S.deptFilter.has(dz));
   const filterNote=[];
-  if(S.deptFilter.size>0&&S.deptFilter.size<d.dzialy.length) filterNote.push(`działy: ${dzialy.join(', ')}`);
-  ['on_track','at_risk','blocked'].forEach(s=>{if(!S.statusFilter.has(s))filterNote.push(`bez ${s.replace('_',' ')}`);});
-  let md=`# Brief operacyjny — portfel inicjatyw\n\nStan na ${d.asof}${filterNote.length?' (filtry: '+filterNote.join('; ')+')':''}\n\n---\n\n`;
+  if(S.deptFilter.size>0&&S.deptFilter.size<d.dzialy.length) filterNote.push(t('mdDepts', dzialy.join(', ')));
+  ['on_track','at_risk','blocked'].forEach(st=>{if(!S.statusFilter.has(st))filterNote.push(t('filterNoStatus', st.replace('_',' ')));});
+  let md=`${t('mdTitle')}\n\n${t('mdAsOf', d.asof)}${filterNote.length?t('mdFilters', filterNote.join('; ')):''}\n\n---\n\n`;
   dzialy.forEach(dzial=>{
     const b=d.brief[dzial]; if(!b) return;
     const dr=d.inicjatywy.filter(r=>r.dzial===dzial&&S.statusFilter.has(r.status));
     if(!dr.length) return;
     const on=dr.filter(r=>r.status==='on_track').length,at=dr.filter(r=>r.status==='at_risk').length,bl=dr.filter(r=>r.status==='blocked').length;
-    md+=`## ${dzial}\n\n**${dr.length} inicjatyw** · ${on} on track · ${at} at risk · ${bl} blocked\n\n`;
+    md+=`## ${dzial}\n\n${t('mdCount', dr.length, on, at, bl)}\n\n`;
     const blokadyF=b.blokady_przychodzace.filter(b2=>S.statusFilter.has(byid[b2.inicjatywa]?.status));
-    md+=`**Na co czekacie:** ${blokadyF.length?blokadyF.map(b2=>`${b2.inicjatywa} → ${b2.od}`).join('; ')+'.' : 'Brak.'}\n\n`;
+    md+=`${t('mdWaiting')} ${blokadyF.length?blokadyF.map(b2=>`${b2.inicjatywa} → ${b2.od}`).join('; ')+'.' : t('mdNone')}\n\n`;
     const blokujeF=b.blokuje_innych.filter(b2=>S.statusFilter.has(byid[b2.inicjatywa]?.status));
-    md+=`**Które inne działy blokujecie:** ${blokujeF.length?blokujeF.map(b2=>`${b2.inicjatywa} → ${b2.blokuje} (${b2.dzial_downstream})`).join('; ')+'.' : 'Brak blokad międzydziałowych.'}\n\n`;
-    const interwDz=d.interwencje.filter(i=>i.dzial===dzial&&i.rekomendacja&&S.statusFilter.has(i.status));
-    if(interwDz.length){md+=`**Do zrobienia:**\n`;interwDz.forEach(i=>md+=`- ${i.id}: ${i.rekomendacja}\n`);md+='\n';}
+    md+=`${t('mdBlocking')} ${blokujeF.length?blokujeF.map(b2=>`${b2.inicjatywa} → ${b2.blokuje} (${b2.dzial_downstream})`).join('; ')+'.' : t('mdNoCross')}\n\n`;
+    const interwDz=d.interwencje.filter(i=>i.dzial===dzial&&tf(i,'rekomendacja')&&S.statusFilter.has(i.status));
+    if(interwDz.length){md+=`${t('mdTodo')}\n`;interwDz.forEach(i=>md+=`- ${i.id}: ${tf(i,'rekomendacja')}\n`);md+='\n';}
     const przeterm=b.przeterminowane.filter(r=>S.statusFilter.has(r.status));
-    if(przeterm.length) md+=`**Czego nie wiemy:** ${przeterm.map(r=>`${r.id} (${r.staleness}d)`).join(', ')}\n\n`;
+    if(przeterm.length) md+=`${t('mdUnknown')} ${przeterm.map(r=>`${r.id} (${r.staleness}d)`).join(', ')}\n\n`;
     md+='---\n\n';
   });
   const blob=new Blob([md],{type:'text/markdown'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
   a.download=`portfolio-radar-${d.asof}.md`; a.click();
-  showToast('Pobrano brief.md ✓');
+  showToast(t('mdToast'));
 }
 
 // ── TOAST ──
+let toastTimer=null;
 function showToast(msg) {
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.style.display='block';
-  setTimeout(()=>t.style.display='none',2500);
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.style.display='block';
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.style.display='none',2500);
 }
 
 // ── START ──
-boot(DEFAULT_DATASET);
+boot(buildDataFromRecs(parseCSV(DEMO_CSV)));
 </script>
 </body>
 </html>
